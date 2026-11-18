@@ -29,23 +29,6 @@ import { getFaqData, homeScreenData } from "../redux/slices/homeSlice";
 import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
-const FAQItem = ({ faq, isOpen, onToggle }) => {
-  return (
-    <div className={`accordion-item ${isOpen ? "active" : ""}`}>
-      <div className="accordion-header" onClick={onToggle} style={{ cursor: "pointer" }}>
-        <h4>{faq?.question}</h4>
-        <span className="accordion-icon"></span>
-      </div>
-      <div className="accordion-body-wrapper">
-        <div className="accordion-body-content">
-          {faq?.answer}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const { AllFaq, homeData, loading } = useSelector((state) => state.home);
@@ -200,7 +183,7 @@ const HomeScreen = () => {
       />
       <Header />
 
-      {/* <section
+      <section
         className="hero"
         style={{
           backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
@@ -214,46 +197,7 @@ const HomeScreen = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="hero-overlay"></div> */}
-
-      <section className="hero" style={{ position: "relative", overflow: "hidden" }}>
-        {/* The LCP Image - loads instantly with high priority */}
-        <img
-          src={
-            homeData?.hero?.backgroundImage
-              ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-              : "/images/hero-banner-bg.png"
-          }
-          alt=""
-          fetchPriority="high"
-          loading="eager"
-          width="1920"
-          height="1080"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        />
-        {/* Dark Gradient Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6))",
-            zIndex: 0,
-          }}
-        />
-        {/* Existing CSS overlay (left-side blur) */}
         <div className="hero-overlay"></div>
-
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
             <span className="dot-black"></span>{" "}
@@ -450,28 +394,28 @@ const HomeScreen = () => {
 
         <div className="risk-right-grid">
           {(homeData?.timeSection?.content &&
-            homeData.timeSection.content.length > 0
+          homeData.timeSection.content.length > 0
             ? homeData.timeSection.content
             : [
-              {
-                title: "01",
-                description: "DoD Solicitations Requiring CMMC 2.0 Clauses",
-              },
-              {
-                title: "02",
-                description:
-                  "Mandatory NIST SP 800-171 SPRS Score Submission",
-              },
-              {
-                title: "03",
-                description: "C3PAO Assessment Backlog & Lead Time Demands",
-              },
-              {
-                title: "04",
-                description:
-                  "Prime Contractor Supply Chain Flow-Down Mandates",
-              },
-            ]
+                {
+                  title: "01",
+                  description: "DoD Solicitations Requiring CMMC 2.0 Clauses",
+                },
+                {
+                  title: "02",
+                  description:
+                    "Mandatory NIST SP 800-171 SPRS Score Submission",
+                },
+                {
+                  title: "03",
+                  description: "C3PAO Assessment Backlog & Lead Time Demands",
+                },
+                {
+                  title: "04",
+                  description:
+                    "Prime Contractor Supply Chain Flow-Down Mandates",
+                },
+              ]
           ).map((item, index) => (
             <div className="risk-card" key={index}>
               <span className="risk-num">{item?.title}</span>
@@ -491,19 +435,19 @@ const HomeScreen = () => {
 
           <div className="stats-counter-row">
             {(homeData?.statsBanner?.stats &&
-              homeData.statsBanner.stats.length > 0
+            homeData.statsBanner.stats.length > 0
               ? homeData.statsBanner.stats
               : [
-                {
-                  value: "110+",
-                  label: "NIST SP 800-171 Security Controls Managed",
-                },
-                { value: "100%", label: "Focus on CMMC 2.0 Audit Readiness" },
-                {
-                  value: "20+",
-                  label: "Years of Executive Security Leadership",
-                },
-              ]
+                  {
+                    value: "110+",
+                    label: "NIST SP 800-171 Security Controls Managed",
+                  },
+                  { value: "100%", label: "Focus on CMMC 2.0 Audit Readiness" },
+                  {
+                    value: "20+",
+                    label: "Years of Executive Security Leadership",
+                  },
+                ]
             ).map((item, index) => (
               <div className="stat-box" key={index}>
                 <h2>{item?.value}</h2>
@@ -530,27 +474,27 @@ const HomeScreen = () => {
           {(homeData?.solution?.cards && homeData.solution.cards.length > 0
             ? homeData.solution.cards
             : [
-              {
-                title: "Gap Analysis & Readiness",
-                description:
-                  "Comprehensive NIST SP 800-171 gap assessments and actionable roadmaps.",
-              },
-              {
-                title: "M365 GCC High Hardening",
-                description:
-                  "Secure cloud configuration, access controls, and data governance.",
-              },
-              {
-                title: "SSP & POAM Development",
-                description:
-                  "Audit-ready System Security Plans and Plan of Action & Milestones.",
-              },
-              {
-                title: "C3PAO Assessment Prep",
-                description:
-                  "End-to-end evidence collection and assessment rehearsal.",
-              },
-            ]
+                {
+                  title: "Gap Analysis & Readiness",
+                  description:
+                    "Comprehensive NIST SP 800-171 gap assessments and actionable roadmaps.",
+                },
+                {
+                  title: "M365 GCC High Hardening",
+                  description:
+                    "Secure cloud configuration, access controls, and data governance.",
+                },
+                {
+                  title: "SSP & POAM Development",
+                  description:
+                    "Audit-ready System Security Plans and Plan of Action & Milestones.",
+                },
+                {
+                  title: "C3PAO Assessment Prep",
+                  description:
+                    "End-to-end evidence collection and assessment rehearsal.",
+                },
+              ]
           ).map((item, index) => (
             <div className="sol-card" key={index}>
               <div className="sol-card-icon">
@@ -795,16 +739,16 @@ const HomeScreen = () => {
 
           <div className="strategic-checklist-box">
             {(homeData?.whoWeAre?.checklist &&
-              homeData.whoWeAre.checklist.length > 0
+            homeData.whoWeAre.checklist.length > 0
               ? homeData.whoWeAre.checklist
               : [
-                { title: "Executive Military Governance & Command Rigor" },
-                { title: "Audit-Ready Documentation & Operational Evidence" },
-                {
-                  title:
-                    "NIST 800-171 & CMMC 2.0 Deep Subject-Matter Expertise",
-                },
-              ]
+                  { title: "Executive Military Governance & Command Rigor" },
+                  { title: "Audit-Ready Documentation & Operational Evidence" },
+                  {
+                    title:
+                      "NIST 800-171 & CMMC 2.0 Deep Subject-Matter Expertise",
+                  },
+                ]
             ).map((item, index) => (
               <div className="checklist-row" key={index}>
                 <span className="chk-icon">
@@ -1068,34 +1012,35 @@ const HomeScreen = () => {
           {(homeData?.industries?.cards && homeData.industries.cards.length > 0
             ? homeData.industries.cards
             : [
-              {
-                title: "Defense & Aerospace",
-                description:
-                  "Comprehensive CMMC readiness for primes and subcontractors.",
-              },
-              {
-                title: "Manufacturing & Engineering",
-                description:
-                  "Securing shop-floor CUI and supply chain communications.",
-              },
-              {
-                title: "Technology & IT Services",
-                description:
-                  "GCC High cloud configurations and access control frameworks.",
-              },
-            ]
+                {
+                  title: "Defense & Aerospace",
+                  description:
+                    "Comprehensive CMMC readiness for primes and subcontractors.",
+                },
+                {
+                  title: "Manufacturing & Engineering",
+                  description:
+                    "Securing shop-floor CUI and supply chain communications.",
+                },
+                {
+                  title: "Technology & IT Services",
+                  description:
+                    "GCC High cloud configurations and access control frameworks.",
+                },
+              ]
           ).map((item, index) => (
             <div
               className="industry-image-box"
               style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${item?.image &&
-                    (item.image.endsWith(".png") ||
-                      item.image.endsWith(".jpg") ||
-                      item.image.endsWith(".jpeg") ||
-                      item.image.endsWith(".webp"))
+                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${
+                  item?.image &&
+                  (item.image.endsWith(".png") ||
+                    item.image.endsWith(".jpg") ||
+                    item.image.endsWith(".jpeg") ||
+                    item.image.endsWith(".webp"))
                     ? `${IMAGE_URL}/${item?.image}`
                     : fallbackImages[index] || fallbackImages[0]
-                  })`,
+                })`,
               }}
               key={index}
             >
@@ -1143,7 +1088,7 @@ const HomeScreen = () => {
           </Link>
         </div>
 
-        {/* <div className="faq-accordion-container">
+        <div className="faq-accordion-container">
           {safeArray(AllFaq).map((faq, index) => {
             const isOpen = activeIndex === index;
 
@@ -1185,19 +1130,7 @@ const HomeScreen = () => {
               </div>
             );
           })}
-        </div> */}
-
-        <div className="faq-accordion-container">
-          {safeArray(AllFaq).map((faq, index) => (
-            <FAQItem
-              key={faq?.id || index}
-              faq={faq}
-              isOpen={activeIndex === index}
-              onToggle={() => toggleFAQ(index)}
-            />
-          ))}
         </div>
-
       </section>
 
       <Footer />
