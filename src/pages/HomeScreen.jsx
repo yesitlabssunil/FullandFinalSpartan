@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,13 +29,42 @@ import { getFaqData, homeScreenData } from "../redux/slices/homeSlice";
 import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
+const FAQItem = ({ faq, isOpen, onToggle }) => {
+  const [height, setHeight] = useState(0);
+  const contentRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isOpen, faq?.answer]);
+
+  return (
+    <div className={`accordion-item ${isOpen ? "active" : ""}`}>
+      <div className="accordion-header" onClick={onToggle} style={{ cursor: "pointer" }}>
+        <h4>{faq?.question}</h4>
+        <span className="accordion-icon"></span>
+      </div>
+      <div
+        className="accordion-body"
+        style={{
+          height: `${height}px`,
+          overflow: "hidden",
+          transition: "height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        <div ref={contentRef} className="accordion-body-content">
+          {faq?.answer}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const { AllFaq, homeData, loading } = useSelector((state) => state.home);
-
-  const heroImage = homeData?.hero?.backgroundImage
-  ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-  : "/images/hero-banner-bg.png";
 
   const safeArray = (value) => (Array.isArray(value) ? value : []);
 
@@ -56,20 +85,10 @@ const HomeScreen = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(getFaqData());
-  //   dispatch(homeScreenData());
-  // }, [dispatch]);
-
   useEffect(() => {
-    if (!homeData) {
-      dispatch(homeScreenData());
-    }
-  
-    if (!AllFaq?.length) {
-      dispatch(getFaqData());
-    }
-  }, [dispatch, homeData, AllFaq]);
+    dispatch(getFaqData());
+    dispatch(homeScreenData());
+  }, [dispatch]);
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -210,18 +229,45 @@ const HomeScreen = () => {
           // backgroundPosition: "center bottom", head cutting
           backgroundSize: "cover",
         }}
-      > */}
+      >
+        <div className="hero-overlay"></div> */}
 
-      <section className="hero">
+      <section className="hero" style={{ position: "relative", overflow: "hidden" }}>
+        {/* The LCP Image - loads instantly with high priority */}
         <img
-          className="hero-background-image"
-          src={heroImage}
+          src={
+            homeData?.hero?.backgroundImage
+              ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+              : "/images/hero-banner-bg.png"
+          }
           alt=""
           fetchPriority="high"
           loading="eager"
-          decoding="async"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
         />
+        {/* Dark Gradient Overlay */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6))",
+            zIndex: 0,
+          }}
+        />
+        {/* Existing CSS overlay (left-side blur) */}
         <div className="hero-overlay"></div>
+
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
             <span className="dot-black"></span>{" "}
@@ -798,8 +844,6 @@ const HomeScreen = () => {
                 src={`${IMAGE_URL}/${homeData?.whoWeAre?.founderCard?.image}`}
                 // src={homeData?.whoWeAre?.founderCard?.image || "/images/leaderImg1.png"}
                 alt={homeData?.whoWeAre?.founderCard?.name || "Raphael Warren"}
-                loading="lazy"
-                decoding="async"
               />
             </div>
 
@@ -1059,12 +1103,12 @@ const HomeScreen = () => {
               className="industry-image-box"
               style={{
                 backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${item?.image &&
-                  (item.image.endsWith(".png") ||
-                    item.image.endsWith(".jpg") ||
-                    item.image.endsWith(".jpeg") ||
-                    item.image.endsWith(".webp"))
-                  ? `${IMAGE_URL}/${item?.image}`
-                  : fallbackImages[index] || fallbackImages[0]
+                    (item.image.endsWith(".png") ||
+                      item.image.endsWith(".jpg") ||
+                      item.image.endsWith(".jpeg") ||
+                      item.image.endsWith(".webp"))
+                    ? `${IMAGE_URL}/${item?.image}`
+                    : fallbackImages[index] || fallbackImages[0]
                   })`,
               }}
               key={index}
@@ -1113,7 +1157,7 @@ const HomeScreen = () => {
           </Link>
         </div>
 
-        <div className="faq-accordion-container">
+        {/* <div className="faq-accordion-container">
           {safeArray(AllFaq).map((faq, index) => {
             const isOpen = activeIndex === index;
 
@@ -1131,14 +1175,15 @@ const HomeScreen = () => {
                   <span className="accordion-icon"></span>
                 </div>
 
-                {/* <div
+                <div
                   className="accordion-body"
                   style={{
                     // Dynamically calculates the exact pixel height required by the text
                     maxHeight: isOpen
-                      ? `${document.getElementById(`faq-content-${index}`)
-                        ?.scrollHeight
-                      }px`
+                      ? `${
+                          document.getElementById(`faq-content-${index}`)
+                            ?.scrollHeight
+                        }px`
                       : "0px",
                     overflow: "hidden",
                     transition: "max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -1150,21 +1195,23 @@ const HomeScreen = () => {
                   >
                     {faq?.answer}
                   </div>
-                </div> */}
-
-                <div className={`accordion-body ${isOpen ? "open" : ""}`}>
-                  <div className="accordion-body-inner">
-                    <div className="accordion-body-content">
-                      {faq?.answer}
-                    </div>
-                  </div>
                 </div>
-
-
               </div>
             );
           })}
+        </div> */}
+
+        <div className="faq-accordion-container">
+          {safeArray(AllFaq).map((faq, index) => (
+            <FAQItem
+              key={faq?.id || index}
+              faq={faq}
+              isOpen={activeIndex === index}
+              onToggle={() => toggleFAQ(index)}
+            />
+          ))}
         </div>
+        
       </section>
 
       <Footer />
