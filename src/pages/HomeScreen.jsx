@@ -52,10 +52,20 @@ const HomeScreen = () => {
     }
   }, []);
 
+  // useEffect(() => {
+  //   dispatch(getFaqData());
+  //   dispatch(homeScreenData());
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(getFaqData());
-    dispatch(homeScreenData());
-  }, [dispatch]);
+    if (!homeData) {
+      dispatch(homeScreenData());
+    }
+  
+    if (!AllFaq?.length) {
+      dispatch(getFaqData());
+    }
+  }, [dispatch, homeData, AllFaq]);
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -196,43 +206,18 @@ const HomeScreen = () => {
           // backgroundPosition: "center bottom", head cutting
           backgroundSize: "cover",
         }}
-      >
-        <div className="hero-overlay"></div> */}
-      <section className="hero" style={{ position: "relative", overflow: "hidden" }}>
-        {/* High priority image for LCP */}
+      > */}
+
+      <section className="hero">
         <img
-          src={
-            homeData?.hero?.backgroundImage
-              ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-              : "/images/hero-banner-bg.png"
-          }
+          className="hero-background-image"
+          src={heroImage}
           alt=""
           fetchPriority="high"
           loading="eager"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: -1,
-          }}
+          decoding="async"
         />
-        {/* Dark gradient overlay so text remains readable */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6))",
-            zIndex: 0
-          }}
-        />
-
-        {/* Remove the old <div className="hero-overlay"></div> line entirely */}
+        <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
             <span className="dot-black"></span>{" "}
@@ -809,6 +794,8 @@ const HomeScreen = () => {
                 src={`${IMAGE_URL}/${homeData?.whoWeAre?.founderCard?.image}`}
                 // src={homeData?.whoWeAre?.founderCard?.image || "/images/leaderImg1.png"}
                 alt={homeData?.whoWeAre?.founderCard?.name || "Raphael Warren"}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -1140,7 +1127,7 @@ const HomeScreen = () => {
                   <span className="accordion-icon"></span>
                 </div>
 
-                <div
+                {/* <div
                   className="accordion-body"
                   style={{
                     // Dynamically calculates the exact pixel height required by the text
@@ -1159,7 +1146,17 @@ const HomeScreen = () => {
                   >
                     {faq?.answer}
                   </div>
+                </div> */}
+
+                <div className={`accordion-body ${isOpen ? "open" : ""}`}>
+                  <div className="accordion-body-inner">
+                    <div className="accordion-body-content">
+                      {faq?.answer}
+                    </div>
+                  </div>
                 </div>
+
+
               </div>
             );
           })}

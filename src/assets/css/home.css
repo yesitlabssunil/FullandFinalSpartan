@@ -2405,3 +2405,45 @@ span.dot-red {
         top: 122px;
     }
 }
+
+/* for performance increase  */
+.hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .hero-background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .accordion-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+  
+  .accordion-body.open {
+    grid-template-rows: 1fr;
+  }
+  
+  .accordion-body-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+  
+  .accordion-body-content {
+    padding: 0 0 15px;
+  }
