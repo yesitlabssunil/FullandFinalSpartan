@@ -11,7 +11,6 @@
 
 
 
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -20,17 +19,30 @@ export default defineConfig({
   plugins: [react()],
   build: {
     target: 'es2015',
+    // In Vite 8+, rollupOptions is automatically mapped to rolldownOptions
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Split React core into its own chunk
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          // Split Redux state management
-          redux: ['@reduxjs/toolkit', 'react-redux'],
-          // Split UI/Notification libraries
-          ui: ['react-toastify', 'react-icons']
-        }
-      }
-    }
+        // advancedChunks replaces the old object-form manualChunks
+        advancedChunks: {
+          groups: [
+            {
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: 'redux',
+              test: /[\\/]node_modules[\\/](@reduxjs\/toolkit|react-redux)[\\/]/,
+              priority: 15,
+            },
+            {
+              name: 'ui',
+              test: /[\\/]node_modules[\\/](react-toastify|react-icons)[\\/]/,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
   },
 })
