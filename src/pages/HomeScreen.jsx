@@ -183,7 +183,7 @@ const HomeScreen = () => {
       />
       <Header />
 
-      <section
+      {/* <section
         className="hero"
         style={{
           backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
@@ -197,7 +197,42 @@ const HomeScreen = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="hero-overlay"></div>
+        <div className="hero-overlay"></div> */}
+      <section className="hero" style={{ position: "relative", overflow: "hidden" }}>
+        {/* High priority image for LCP */}
+        <img
+          src={
+            homeData?.hero?.backgroundImage
+              ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+              : "/images/hero-banner-bg.png"
+          }
+          alt=""
+          fetchPriority="high"
+          loading="eager"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        />
+        {/* Dark gradient overlay so text remains readable */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6))",
+            zIndex: 0
+          }}
+        />
+
+        {/* Remove the old <div className="hero-overlay"></div> line entirely */}
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
             <span className="dot-black"></span>{" "}
@@ -394,28 +429,28 @@ const HomeScreen = () => {
 
         <div className="risk-right-grid">
           {(homeData?.timeSection?.content &&
-          homeData.timeSection.content.length > 0
+            homeData.timeSection.content.length > 0
             ? homeData.timeSection.content
             : [
-                {
-                  title: "01",
-                  description: "DoD Solicitations Requiring CMMC 2.0 Clauses",
-                },
-                {
-                  title: "02",
-                  description:
-                    "Mandatory NIST SP 800-171 SPRS Score Submission",
-                },
-                {
-                  title: "03",
-                  description: "C3PAO Assessment Backlog & Lead Time Demands",
-                },
-                {
-                  title: "04",
-                  description:
-                    "Prime Contractor Supply Chain Flow-Down Mandates",
-                },
-              ]
+              {
+                title: "01",
+                description: "DoD Solicitations Requiring CMMC 2.0 Clauses",
+              },
+              {
+                title: "02",
+                description:
+                  "Mandatory NIST SP 800-171 SPRS Score Submission",
+              },
+              {
+                title: "03",
+                description: "C3PAO Assessment Backlog & Lead Time Demands",
+              },
+              {
+                title: "04",
+                description:
+                  "Prime Contractor Supply Chain Flow-Down Mandates",
+              },
+            ]
           ).map((item, index) => (
             <div className="risk-card" key={index}>
               <span className="risk-num">{item?.title}</span>
@@ -435,19 +470,19 @@ const HomeScreen = () => {
 
           <div className="stats-counter-row">
             {(homeData?.statsBanner?.stats &&
-            homeData.statsBanner.stats.length > 0
+              homeData.statsBanner.stats.length > 0
               ? homeData.statsBanner.stats
               : [
-                  {
-                    value: "110+",
-                    label: "NIST SP 800-171 Security Controls Managed",
-                  },
-                  { value: "100%", label: "Focus on CMMC 2.0 Audit Readiness" },
-                  {
-                    value: "20+",
-                    label: "Years of Executive Security Leadership",
-                  },
-                ]
+                {
+                  value: "110+",
+                  label: "NIST SP 800-171 Security Controls Managed",
+                },
+                { value: "100%", label: "Focus on CMMC 2.0 Audit Readiness" },
+                {
+                  value: "20+",
+                  label: "Years of Executive Security Leadership",
+                },
+              ]
             ).map((item, index) => (
               <div className="stat-box" key={index}>
                 <h2>{item?.value}</h2>
@@ -474,27 +509,27 @@ const HomeScreen = () => {
           {(homeData?.solution?.cards && homeData.solution.cards.length > 0
             ? homeData.solution.cards
             : [
-                {
-                  title: "Gap Analysis & Readiness",
-                  description:
-                    "Comprehensive NIST SP 800-171 gap assessments and actionable roadmaps.",
-                },
-                {
-                  title: "M365 GCC High Hardening",
-                  description:
-                    "Secure cloud configuration, access controls, and data governance.",
-                },
-                {
-                  title: "SSP & POAM Development",
-                  description:
-                    "Audit-ready System Security Plans and Plan of Action & Milestones.",
-                },
-                {
-                  title: "C3PAO Assessment Prep",
-                  description:
-                    "End-to-end evidence collection and assessment rehearsal.",
-                },
-              ]
+              {
+                title: "Gap Analysis & Readiness",
+                description:
+                  "Comprehensive NIST SP 800-171 gap assessments and actionable roadmaps.",
+              },
+              {
+                title: "M365 GCC High Hardening",
+                description:
+                  "Secure cloud configuration, access controls, and data governance.",
+              },
+              {
+                title: "SSP & POAM Development",
+                description:
+                  "Audit-ready System Security Plans and Plan of Action & Milestones.",
+              },
+              {
+                title: "C3PAO Assessment Prep",
+                description:
+                  "End-to-end evidence collection and assessment rehearsal.",
+              },
+            ]
           ).map((item, index) => (
             <div className="sol-card" key={index}>
               <div className="sol-card-icon">
@@ -739,16 +774,16 @@ const HomeScreen = () => {
 
           <div className="strategic-checklist-box">
             {(homeData?.whoWeAre?.checklist &&
-            homeData.whoWeAre.checklist.length > 0
+              homeData.whoWeAre.checklist.length > 0
               ? homeData.whoWeAre.checklist
               : [
-                  { title: "Executive Military Governance & Command Rigor" },
-                  { title: "Audit-Ready Documentation & Operational Evidence" },
-                  {
-                    title:
-                      "NIST 800-171 & CMMC 2.0 Deep Subject-Matter Expertise",
-                  },
-                ]
+                { title: "Executive Military Governance & Command Rigor" },
+                { title: "Audit-Ready Documentation & Operational Evidence" },
+                {
+                  title:
+                    "NIST 800-171 & CMMC 2.0 Deep Subject-Matter Expertise",
+                },
+              ]
             ).map((item, index) => (
               <div className="checklist-row" key={index}>
                 <span className="chk-icon">
@@ -1012,35 +1047,34 @@ const HomeScreen = () => {
           {(homeData?.industries?.cards && homeData.industries.cards.length > 0
             ? homeData.industries.cards
             : [
-                {
-                  title: "Defense & Aerospace",
-                  description:
-                    "Comprehensive CMMC readiness for primes and subcontractors.",
-                },
-                {
-                  title: "Manufacturing & Engineering",
-                  description:
-                    "Securing shop-floor CUI and supply chain communications.",
-                },
-                {
-                  title: "Technology & IT Services",
-                  description:
-                    "GCC High cloud configurations and access control frameworks.",
-                },
-              ]
+              {
+                title: "Defense & Aerospace",
+                description:
+                  "Comprehensive CMMC readiness for primes and subcontractors.",
+              },
+              {
+                title: "Manufacturing & Engineering",
+                description:
+                  "Securing shop-floor CUI and supply chain communications.",
+              },
+              {
+                title: "Technology & IT Services",
+                description:
+                  "GCC High cloud configurations and access control frameworks.",
+              },
+            ]
           ).map((item, index) => (
             <div
               className="industry-image-box"
               style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${
-                  item?.image &&
+                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${item?.image &&
                   (item.image.endsWith(".png") ||
                     item.image.endsWith(".jpg") ||
                     item.image.endsWith(".jpeg") ||
                     item.image.endsWith(".webp"))
-                    ? `${IMAGE_URL}/${item?.image}`
-                    : fallbackImages[index] || fallbackImages[0]
-                })`,
+                  ? `${IMAGE_URL}/${item?.image}`
+                  : fallbackImages[index] || fallbackImages[0]
+                  })`,
               }}
               key={index}
             >
@@ -1111,10 +1145,9 @@ const HomeScreen = () => {
                   style={{
                     // Dynamically calculates the exact pixel height required by the text
                     maxHeight: isOpen
-                      ? `${
-                          document.getElementById(`faq-content-${index}`)
-                            ?.scrollHeight
-                        }px`
+                      ? `${document.getElementById(`faq-content-${index}`)
+                        ?.scrollHeight
+                      }px`
                       : "0px",
                     overflow: "hidden",
                     transition: "max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
