@@ -1,0 +1,112 @@
+.header-main {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    /* padding: 15px 0; */
+  }
+  
+  .navbar-brand img {
+    max-width: 170px;
+  }
+  
+  .nav-link {
+    color: #3c3c3c;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 8px;
+  }
+  
+  .contact-btn {
+    background: #ff1414;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .contact-btn:hover {
+    background: #e10000;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      padding-top: 20px;
+    }
+  
+    .contact-btn {
+      text-align: center;
+      width: 100%;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  
+.navbar-nav {
+    gap: 5px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #1A1A1AB2;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 500;
+    /* transition: all 0.3s ease; */
+    font-family: var(--bs-body-font-family) !important;
+  }
+
+  .navbar-nav .nav-link:hover {
+    /* color: #000000; */
+    color: red;
+  }
+
+  .navbar-nav .nav-link.active {
+    /* color: #000000; */
+    color: red;
+    font-weight: 600;
+  }
+
+
+
+  /* for ipad pro responsive issue */
+
+  /* ============================================
+   IPAD PRO & SMALL DESKTOP HEADER FIX
+   (Targets landscape tablets / 1024px - 1366px)
+   ============================================ */
+/* @media (min-width: 992px) and (max-width: 1366px) { */
+@media (min-width: 992px) and (max-width: 1050px) {
+  
+  /* 1. Reduce container padding to gain horizontal space */
+  .custom-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 100% !important; /* Prevents Bootstrap container from restricting width */
+  }
+
+  /* 2. Shrink the logo slightly */
+  .navbar-brand img {
+    max-width: 130px !important;
+  }
+
+  /* 3. Tighter spacing between nav items */
+  .navbar-nav {
+    gap: 2px !important;
+  }
+
+  /* 4. Smaller font & margins for nav links */
+  .navbar-nav .nav-link {
+    font-size: 13px !important;
+    margin: 0 4px !important;
+    padding: 8px 6px !important;
+  }
+
+  /* 5. Compact the "Contact Us" button */
+  .contact-btn {
+    padding: 9px 16px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,670 @@
+import React, { useEffect, useState, useMemo } from "react";
+import "../assets/css/resourceDetailScreen.css";
+import { useDispatch, useSelector } from "react-redux";
+import { resourceDetailScreen } from "../redux/slices/homeSlice";
+import { Link, useParams, useLocation } from "react-router-dom";
+import SEO from "../component/SEO";
+
+const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
+
+// 1. DIRECT JSON IMPORT
+// import resourceDetailData from "../assets/jsonData/resourceDetailScreen.json";
+import Header from "../component/Header";
+import Footer from "../component/Footer";
+import ResourceScreen from "./ResourcesScreen";
+import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
+
+const ResourceDetailScreen = () => {
+  const location = useLocation();
+  const resourceTitle = location.state?.title;
+  const resourceDescription = location.state?.description;
+  const { slug } = useParams();
+  const dispatch = useDispatch();
+  const { resourceStatus, resourceDetailScreenData, loading } = useSelector((state) => state.home);
+
+  useEffect(() => {
+    // dispatch(resourceScreenData());
+    dispatch(resourceDetailScreen(slug));
+  }, [dispatch, slug]);
+
+  const getRandomItems = (items = [], count = 5) => {
+    return [...items]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, count);
+  };
+
+  // State for Accordion FAQ (default first FAQ open as per Figma)
+  const [activeFaqId, setActiveFaqId] = useState();
+
+  const toggleFaq = (id) => {
+    setActiveFaqId(activeFaqId === id ? null : id);
+  };
+
+  // Fallback check
+  // if (!resourceStatus) {
+  //   return (
+  //     <div className="error-state">No data found.</div>
+  //   );
+  // }
+
+  const faqSchema = {
+    "@type": "FAQPage",
+    "@id": `https://spartan-cs.com/policy/${slug}#faq`,
+    "mainEntity": resourceDetailScreenData?.faqSection?.items?.map((faq) => ({
+      "@type": "Question",
+      "name": faq?.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq?.answer
+      }
+    }))
+  };
+
+  // const relatedResources = getRandomItems(
+  //   resourceDetailScreenData?.sidebarRelatedResources?.items,
+  // );
+
+  const relatedResourceItems =
+    resourceDetailScreenData?.sidebarRelatedResources?.items || [];
+
+  const relatedResources = useMemo(() => {
+    return getRandomItems(relatedResourceItems);
+  }, [relatedResourceItems]);
+
+
+
+  const currentPolicyName =
+  resourceDetailScreenData?.heroSection?.mainTitle || "Policy";
+
+  const currentPolicyUrl = `https://spartan-cs.com/policy/${slug}`;
+
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": `${currentPolicyUrl}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://spartan-cs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Policies",
+        "item": "https://spartan-cs.com/policies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": currentPolicyName,
+        "item": currentPolicyUrl
+      }
+    ]
+  };
+
+
+  return (
+    <>
+      <SEO
+        title={resourceTitle ||
+          "CMMC & Cybersecurity Resources for Federal Contractors"}
+        description={resourceDescription}
+        url={`https://spartan-cs.com/policy/${slug}`}
+        schema={[
+          faqSchema,
+          breadcrumbSchema
+        ]}
+      />
+      <Header />
+      <div className="resource-detail-page">
+        {/* 1. HERO SECTION */}
+        {/* HERO SECTION */}
+        <section className="resource-detail-hero-section">
+          <div className="detail-hero-ambient-glow" />
+
+          <div className="detail-section-inner-content">
+            {/* <div className="detail-resource-badge-pill">
+             <Link to="/" style={{textDecoration: "none"}}> <span className="detail-tag-home-link">Home</span></Link>
+              <span className="detail-tag-separator">|</span>
+              <span className="detail-tag-red-primary">Resources & Media</span>
+            </div> */}
+            <div className="blog-breadcrumb">
+              <Link to="/" style={{ textDecoration: "none" }}> <span style={{ color: "white" }}>Home</span></Link>
+              <span className="separator">|</span>{" "}
+              <span>Policies & Media</span>
+            </div>
+
+            <h1 className="detail-hero-display-title">
+              {resourceDetailScreenData?.heroSection?.mainTitle}
+            </h1>
+            {
+              resourceDetailScreenData?.heroSection?.subTitle && (
+
+                <p className="blog-hero-subtitle">
+                  {resourceDetailScreenData?.heroSection?.subTitle}
+                </p>
+              )
+            }
+
+          </div>
+        </section>
+
+        {/* POLICY OPTIONS SECTION */}
+        <section className="policy-options-section">
+          <div className="policy-options-container">
+
+            {/* LEFT CARD: Download All Policies */}
+            <div className="policy-option-card">
+              <div className="policy-option-header">
+                <div className="policy-icon-wrapper">
+                  {/* <svg className="policy-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M12 12v6" />
+                    <path d="m9 15 3 3 3-3" />
+                  </svg> */}
+                  <img src="/images/nw-img1.png" alt="Get All Policies" />
+                </div>
+
+                <div className="policy-card-text-wrapper">
+                  <h2 className="policy-option-title">
+                    Get All Policies. <span className="highlight-red">100% Free.</span>
+                  </h2>
+
+                  <p className="policy-option-description">
+                    Access our complete library of cybersecurity policy templates in one click. No signup, no hassle.
+                  </p>
+
+                  {/* <button className="policy-btn"> */}
+                  <a
+                    href="/pdf/spartan-cyberSecurity-policies.pdf"
+                    download="Spartan-CyberSecurity-Policies.pdf"
+                    className="policy-btn"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download All Policies for Free</span>
+                    <svg className="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                  {/* </button> */}
+                </div>
+              </div>
+            </div>
+
+            {/* CENTER DIVIDER WITH "OR" CIRCLE */}
+            <div className="policy-divider-container">
+              <div className="policy-divider-line" />
+              <div className="policy-or-badge">OR</div>
+              <div className="policy-divider-line" />
+            </div>
+
+            {/* RIGHT CARD: Customized Policy */}
+            <div className="policy-option-card">
+              <div className="policy-option-header">
+                <div className="policy-icon-wrapper">
+                  {/* <svg className="policy-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L8.5 20.5 5 21l.5-3.5 4.92-4.89z" />
+                  </svg> */}
+                  <img src="/images/nw-img2.png" alt="Need a Policy" style={{ height: "37px", width: "36px" }} />
+                </div>
+
+                <div className="policy-card-text-wrapper">
+                  <h2 className="policy-option-title">
+                    Need a Policy <span className="highlight-red">Customized?</span>
+                  </h2>
+
+                  <p className="policy-option-description">
+                    Get this policy tailored to your organization by our cybersecurity experts.
+                  </p>
+
+                  <Link to="/customize-policy" className="policy-btn">
+                    {/* <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 20h9" />
+                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                    </svg> */}
+                    <img src="/images/edit_icn.png" alt="Customize This Policy Now" />
+                    <span>Customize This Policy Now</span>
+                    <svg className="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* MAIN CONTENT & SIDEBAR CONTAINER */}
+        <div className="detail-container">
+          {/* Main Article Body */}
+          <main className="article-main">
+            {/* Meta Label Top */}
+            {resourceDetailScreenData?.articleContent?.sectionLabel && (
+              <div className="section-meta-wrapper">
+                <span className="section-meta-line" />
+                <span className="section-meta-label">
+                  {resourceDetailScreenData?.articleContent?.sectionLabel}
+                </span>
+              </div>
+            )}
+
+            {/* 1. OVERVIEW */}
+            {resourceDetailScreenData?.articleContent?.overview && (
+              <section className="article-section">
+                <h2 className="section-title">
+                  {resourceDetailScreenData?.articleContent.overview.title}
+                </h2>
+                {resourceDetailScreenData?.articleContent.overview.paragraphs?.map((paragraph, index) => (
+                  <p key={index} className="article-paragraph">
+                    {paragraph?.content}
+                  </p>
+                ))}
+              </section>
+            )}
+
+            {/* 2. PURPOSE */}
+            {resourceDetailScreenData?.articleContent?.purpose && (
+              <section className="article-section">
+                <h2 className="section-title">
+                  {resourceDetailScreenData?.articleContent.purpose.title}
+                </h2>
+                {resourceDetailScreenData?.articleContent.purpose.introText && (
+                  <p className="intro-text">
+                    {resourceDetailScreenData?.articleContent.purpose.introText}
+                  </p>
+                )}
+                <ul className="red-star-list">
+                  {resourceDetailScreenData?.articleContent.purpose.items?.map((item, index) => (
+                    <li key={index} className="star-list-item">
+                      {/* <span className="red-star-icon">✦</span> */}
+                      <svg
+                        className="nist-star-icon"
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="#E11D48"
+                      >
+                        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                      </svg>
+                      <div className="list-text-content">
+                        {/* {item.boldPrefix && <strong>{item.boldPrefix} </strong>} */}
+                        {item?.content}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 3. KEY CONCEPTS */}
+            {resourceDetailScreenData?.articleContent?.keyConcepts && (
+              <section className="article-section">
+                <h2 className="section-title">
+                  {resourceDetailScreenData?.articleContent?.keyConcepts?.title}
+                </h2>
+                {resourceDetailScreenData?.articleContent?.keyConcepts?.subsections?.map((sub, index) => (
+                  <div key={index} className="key-concept-block">
+                    <h3 className="red-subheading">{sub.redTitle}</h3>
+                    {sub.paragraphs?.map((p, pIndex) => (
+                      <p key={pIndex} className="article-paragraph">
+                        {p?.content}
+                      </p>
+                    ))}
+                    {/* {sub?.points &&
+                      (<ul className="red-star-list">
+                        {sub?.points?.map((point, pIndex) => ( */}
+                    {sub?.points?.some((point) => point?.content?.trim()) &&
+                      (<ul className="red-star-list">
+                        {sub?.points.filter((point) => point?.content?.trim())
+                          .map((point, pIndex) => (
+                            <li key={pIndex} className="star-list-item">
+                              <svg
+                                className="nist-star-icon"
+                                width="17"
+                                height="17"
+                                viewBox="0 0 24 24"
+                                fill="#E11D48"
+                              >
+                                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                              </svg>
+                              <div className="list-text-content">
+                                {/* {item.boldPrefix && <strong>{item.boldPrefix} </strong>} */}
+                                {point?.content}
+                              </div>
+                            </li>
+                          ))}
+                      </ul>)
+                    }
+
+                  </div>
+                ))}
+
+              </section>
+            )}
+
+            {/* 4. HARDWARE CONSIDERATIONS / CALLOUT */}
+            {resourceDetailScreenData?.articleContent?.businessImportance && (
+              <section className="article-section">
+                <h2 className="section-title">
+                  {resourceDetailScreenData?.articleContent?.businessImportance?.title}
+                </h2>
+
+                {resourceDetailScreenData?.articleContent?.businessImportance?.calloutBox && (
+                  <div className="pink-callout-box">
+                    <p className="callout-text">
+                      <strong className="red-callout-title">
+                        {
+                          resourceDetailScreenData?.articleContent?.businessImportance?.calloutBox
+                            ?.boldTitle
+                        }
+                        {/* {
+                          resourceDetailScreenData?.articleContent?.businessImportance?.calloutBox
+                            ?.text
+                        } */}
+
+                      </strong>{" "}
+                      {resourceDetailScreenData?.articleContent?.businessImportance?.calloutBox?.text}
+                    </p>
+                  </div>
+                )}
+
+                {resourceDetailScreenData?.articleContent?.businessImportance.paragraphs?.map(
+                  (paragraph, index) => (
+                    <p key={index} className="article-paragraph">
+                      {paragraph?.content}
+                    </p>
+                  )
+                )}
+              </section>
+            )}
+
+            {/* 5. BEST PRACTICES */}
+            {resourceDetailScreenData?.articleContent?.bestPractices && (
+              <section className="article-section">
+                <h2 className="section-title">
+                  {resourceDetailScreenData?.articleContent.bestPractices.title}
+                </h2>
+                <ul className="red-star-list">
+                  {resourceDetailScreenData?.articleContent.bestPractices.items?.map((item, index) => (
+                    <li key={index} className="star-list-item">
+                      <svg
+                        className="nist-star-icon"
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="#E11D48"
+                      >
+                        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                      </svg>
+                      <div className="list-text-content">
+                        {item.boldPrefix && <strong>{item.boldPrefix} </strong>}
+                        {item.text}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </main>
+
+          {/* SIDEBAR (FIXED / STICKY POSITIONED ON SCROLL) */}
+          <aside className="article-sidebar">
+            <div className="sticky-sidebar-card">
+              <h3 className="sidebar-title">
+                {resourceDetailScreenData?.sidebarRelatedResources?.title}
+              </h3>
+              <ul className="related-links-list">
+                {relatedResources.map((link) => (
+                  <li key={link?.id}>
+                    <Link to={`/policy/${link?.slug}`} >{link?.hero_title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+
+        {/* =========================================================================
+                  SECTION 9: FAQ ASYMMETRIC ACCORDION LAYOUT (References: Section9.jpg)
+                  ========================================================================= */}
+        <section
+          className="resource-faq-section"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
+          <div className="section-inner-content faq-layout-grid">
+            {/* Left Column Sticky Header Block */}
+            <div className="faq-left-header-panel">
+              <div className="faq-mini-badge">
+                <span className="badge-dot-indicator" />
+                <span className="badge-label-text">FAQ</span>
+              </div>
+              <h2 className="faq-panel-title">
+                You Have Questions.
+                <br />
+                We Have Answers.
+              </h2>
+              <Link
+                to="/contact-us"
+                className="btn-red-action"
+                style={{ marginTop: "15px" }}
+              >
+                Schedule a call <i className="fas fa-arrow-right"></i>
+              </Link>
+            </div>
+
+            {/* Right Column Interactive Accordion Stack */}
+            <div className="faq-right-accordion-panel">
+              {resourceDetailScreenData?.faqSection?.items?.map((item, index) => {
+                const isOpen = activeFaqId === item.id;
+                return (
+                  <div
+                    key={item?.id}
+                    className={`faq-accordion-row ${isOpen ? "is-expanded" : ""
+                      }`}
+                    onClick={() => toggleFaq(item?.id)}
+                  >
+                    <div className="faq-row-trigger-line">
+                      <h3 className="faq-question-text">{item?.question}</h3>
+                      <div
+                        className={`faq-toggle-circle-indicator ${isOpen ? "active-minus" : "inactive-plus"
+                          }`}
+                      >
+                        {isOpen ? (
+                          /* Minus SVG Icon */
+                          <svg
+                            width="12"
+                            height="2"
+                            viewBox="0 0 12 2"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M1 1H11"
+                              stroke="#FFFFFF"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        ) : (
+                          /* Plus SVG Icon */
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 1V11M1 6H11"
+                              stroke="#27272A"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Smooth height container breakdown space */}
+                    <div className="faq-row-collapsible-content">
+                      <div className="faq-answer-inner-wrapper">
+                        <p className="faq-answer-paragraph">{item?.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+
+
+        <nav className="bottom-article-nav">
+          {/* PREVIOUS LINK OR DISABLED DIV */}
+          {resourceDetailScreenData?.bottomNavigation?.prev ? (
+            <Link
+              to={`/policy/${resourceDetailScreenData?.bottomNavigation?.prev?.slug}`}
+              // state={{id: resourceDetailScreenData?.bottomNavigation?.prev?.id}}
+              className="nav-item prev"
+            >
+              <div className="sublabel-wrapper">
+                <svg
+                  className="nav-arrow"
+                  width="20"
+                  height="12"
+                  viewBox="0 0 20 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 6H1M1 6L6 1M1 6L6 11"
+                    stroke="#E62225"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="nav-sublabel">PREVIOUS</span>
+              </div>
+              <strong className="nav-title">{resourceDetailScreenData?.bottomNavigation?.prev.title}</strong>
+            </Link>
+          ) : (
+            <div className="nav-item prev disabled">
+              <div className="sublabel-wrapper">
+                <svg
+                  className="nav-arrow"
+                  width="20"
+                  height="12"
+                  viewBox="0 0 20 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 6H1M1 6L6 1M1 6L6 11"
+                    stroke="#ccc"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="nav-sublabel">PREVIOUS</span>
+              </div>
+              {/* <strong className="nav-title">-</strong> */}
+            </div>
+          )}
+
+          {/* CENTER LABEL */}
+          <div className="nav-center-date">
+            {resourceDetailScreenData?.bottomNavigation?.centerLabel}
+          </div>
+
+          {/* NEXT LINK OR DISABLED DIV */}
+          {resourceDetailScreenData?.bottomNavigation?.next ? (
+            <Link
+              to={`/policy/${resourceDetailScreenData?.bottomNavigation?.next?.slug}`}
+              // state={{id: resourceDetailScreenData?.bottomNavigation?.next?.id}}
+              className="nav-item next"
+            >
+              <div className="sublabel-wrapper">
+                <span className="nav-sublabel">NEXT</span>
+                <svg
+                  className="nav-arrow"
+                  width="20"
+                  height="12"
+                  viewBox="0 0 20 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6H19M19 6L14 1M19 6L14 11"
+                    stroke="#E62225"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <strong className="nav-title">{resourceDetailScreenData?.bottomNavigation?.next.title}</strong>
+            </Link>
+          ) : (
+            <div className="nav-item next disabled">
+              <div className="sublabel-wrapper">
+                <span className="nav-sublabel">NEXT</span>
+                <svg
+                  className="nav-arrow"
+                  width="20"
+                  height="12"
+                  viewBox="0 0 20 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6H19M19 6L14 1M19 6L14 11"
+                    stroke="#ccc"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              {/* <strong className="nav-title">-</strong> */}
+            </div>
+          )}
+        </nav>
+
+        <section className="resource-insights-section">
+          <div className="section-inner-content">
+            {/* Centered Section Header */}
+            <h2
+              className="insights-main-title"
+              style={{ marginBottom: "30px" }}
+            >
+              {resourceDetailScreenData?.blogData?.mainTitle}
+            </h2>
+            {/* </div> */}
+
+
+            <BlogHorizontalScroll items={resourceDetailScreenData?.blogData?.cards} />
+          </div>
+        </section>
+
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default ResourceDetailScreen;
