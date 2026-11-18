@@ -227,8 +227,8 @@ const HomeScreen = () => {
           alt=""
           fetchPriority="high"
           loading="eager"
-          width="1920"   /* ADD THIS */
-          height="1080"  /* ADD THIS */
+          width="1920"
+          height="1080"
           style={{
             position: "absolute",
             top: 0,
