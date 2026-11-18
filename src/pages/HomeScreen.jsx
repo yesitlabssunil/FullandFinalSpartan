@@ -33,6 +33,10 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const { AllFaq, homeData, loading } = useSelector((state) => state.home);
 
+  const heroImage = homeData?.hero?.backgroundImage
+  ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+  : "/images/hero-banner-bg.png";
+
   const safeArray = (value) => (Array.isArray(value) ? value : []);
 
   //   useEffect(() => {
