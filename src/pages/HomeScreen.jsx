@@ -30,30 +30,14 @@ import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
 const FAQItem = ({ faq, isOpen, onToggle }) => {
-  const [height, setHeight] = useState(0);
-  const contentRef = useRef(null);
-
-  useLayoutEffect(() => {
-    if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
-    }
-  }, [isOpen, faq?.answer]);
-
   return (
     <div className={`accordion-item ${isOpen ? "active" : ""}`}>
       <div className="accordion-header" onClick={onToggle} style={{ cursor: "pointer" }}>
         <h4>{faq?.question}</h4>
         <span className="accordion-icon"></span>
       </div>
-      <div
-        className="accordion-body"
-        style={{
-          height: `${height}px`,
-          overflow: "hidden",
-          transition: "height 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-      >
-        <div ref={contentRef} className="accordion-body-content">
+      <div className="accordion-body-wrapper">
+        <div className="accordion-body-content">
           {faq?.answer}
         </div>
       </div>
@@ -243,6 +227,8 @@ const HomeScreen = () => {
           alt=""
           fetchPriority="high"
           loading="eager"
+          width="1920"   /* ADD THIS */
+          height="1080"  /* ADD THIS */
           style={{
             position: "absolute",
             top: 0,
@@ -1211,7 +1197,7 @@ const HomeScreen = () => {
             />
           ))}
         </div>
-        
+
       </section>
 
       <Footer />

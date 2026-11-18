@@ -2405,3 +2405,26 @@ span.dot-red {
         top: 122px;
     }
 }
+
+/* --------------performance by sunil  */
+
+/* PURE CSS ACCORDION - ZERO JAVASCRIPT LAYOUT SHIFTS */
+.accordion-body-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-body-content {
+    overflow: hidden;
+    font-family: 'Geist', sans-serif;
+    padding-bottom: 25px;
+    font-size: 16px;
+    color: #000000B2;
+    line-height: 1.65;
+    max-width: 580px;
+}
+
+.accordion-item.active .accordion-body-wrapper {
+    grid-template-rows: 1fr;
+}
