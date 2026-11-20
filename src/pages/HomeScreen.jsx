@@ -185,18 +185,18 @@ const HomeScreen = () => {
 
       <section
         className="hero"
-          style={{
-            backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
-              homeData?.hero?.backgroundImage
-                ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-                : "/images/hero-banner-bg.webp"
-            })`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
+        //   style={{
+        //     backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
+        //       homeData?.hero?.backgroundImage
+        //         ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+        //         : "/images/hero-banner-bg.webp"
+        //     })`,
+        //     backgroundRepeat: "no-repeat",
+        //     backgroundSize: "cover",
+        //   }}
+        // >
 
-        {/* style={{
+        style={{
           backgroundImage: `url(${homeData?.hero?.backgroundImage
             ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
             : "/images/hero-banner-bg.webp"
@@ -204,7 +204,7 @@ const HomeScreen = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      > */}
+      > 
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
