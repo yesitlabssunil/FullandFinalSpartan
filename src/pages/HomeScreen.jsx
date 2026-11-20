@@ -1016,7 +1016,7 @@ const HomeScreen = () => {
           </p>
         </div>
 
-        <div className="industry-cards-row">
+        {/* <div className="industry-cards-row">
           {homeData?.industries?.cards?.map((item, index) => (
             <div
               className="industry-image-box"
@@ -1033,6 +1033,35 @@ const HomeScreen = () => {
               <p>{item?.description}</p>
             </div>
           ))}
+        </div> */}
+
+        <div className="industry-cards-row">
+          {(homeData?.industries?.cards || []).map((item, index) => {
+            // 1. Safely encode the API image path (turns spaces into %20)
+            const safeImagePath = item?.image ? encodeURI(item.image) : "";
+
+            // 2. Only create the URL if the backend actually provided an image
+            const imageUrl = item?.image ? `${IMAGE_URL}/${safeImagePath}` : "";
+
+            // 3. If there is an image, append it to the gradient. If not, just show the gradient.
+            const backgroundStyle = imageUrl
+              ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url("${imageUrl}")`
+              : `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%)`;
+
+            return (
+              <div
+                className="industry-image-box"
+                style={{ backgroundImage: backgroundStyle }}
+                key={item?.id || index}
+              >
+                <span className="ind-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{item?.title}</h3>
+                <p>{item?.description}</p>
+              </div>
+            );
+          })}
         </div>
 
       </section>

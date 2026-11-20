@@ -63,18 +63,18 @@ export function initHomeScripts() {
 
     // 4. SOFT FADE-IN SCROLL REVEAL LOGIC
     
-    // const fadeElements = document.querySelectorAll('.fade-in');
-    // const handleScrollAnimation = () => {
-    //     fadeElements.forEach(el => {
-    //         el.classList.add('visible');
-    //     });
-    // };
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const handleScrollAnimation = () => {
+        fadeElements.forEach(el => {
+            el.classList.add('visible');
+        });
+    };
 
-    // window.addEventListener('scroll', handleScrollAnimation);
-    // window.addEventListener('load', handleScrollAnimation);
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
     
-    // // Run it once immediately for all elements
-    // handleScrollAnimation();
+    // Run it once immediately for all elements
+    handleScrollAnimation();
 
     // Return a cleanup function to remove event listeners when leaving Home
     return () => {
