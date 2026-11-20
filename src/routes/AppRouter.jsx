@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
 // import HomeScreen from "../pages/Home1";
 import HomeScreen from "../pages/HomeScreen";
 import BlogScreen from "../pages/BlogScreen";
@@ -17,6 +17,13 @@ import ResourceDetailScreen from "../pages/ResourceDetailScreen";
 import AllBlogs from "../pages/AllBlogs";
 import TrailingSlashRedirect from "./TrailingSlashRedirect";
 import CustomizePolicy from "../pages/CustomizePolicy";
+
+// ✅ NEW: redirects /resource/:slug → /policy/:slug (client-side)
+const ResourceToPolicyRedirect = () => {
+    const { slug } = useParams();
+    const { search, hash } = useLocation();
+    return <Navigate to={`/policy/${slug}${search}${hash}`} replace />;
+};
 
 const AppRouter = () => (
     <Router>
@@ -78,10 +85,15 @@ const AppRouter = () => (
                 <Route path="/customize-policy" element={
                     <CustomizePolicy />
                 } />
-            
+
 
                 <Route path="/policy/:slug" element={
                     <ResourceDetailScreen />
+                } />
+
+                {/* ✅ NEW: /resource/:slug → /policy/:slug, MUST be above the "*" route */}
+                <Route path="/resource/:slug" element={
+                    <ResourceToPolicyRedirect />
                 } />
 
                 <Route path="*" element={

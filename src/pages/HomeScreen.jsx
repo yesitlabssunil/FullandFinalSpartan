@@ -185,16 +185,24 @@ const HomeScreen = () => {
 
       <section
         className="hero"
+        // style={{
+        //   backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
+        //     homeData?.hero?.backgroundImage
+        //       ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+        //       : "/images/hero-banner-bg.png"
+        //   })`,
+        //   backgroundRepeat: "no-repeat",
+        //   // backgroundPosition: "center top", Original
+        //   // backgroundPosition: "center bottom", head cutting
+        //   backgroundSize: "cover",
+        // }}
+
         style={{
-          backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
-            homeData?.hero?.backgroundImage
-              ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-              : "/images/hero-banner-bg.png"
-          })`,
-          backgroundRepeat: "no-repeat",
-          // backgroundPosition: "center top", Original
-          // backgroundPosition: "center bottom", head cutting
-          backgroundSize: "cover",
+          backgroundImage: homeData?.hero?.backgroundImage
+            ? `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${IMAGE_URL}/${homeData.hero.backgroundImage})`
+            : `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6))`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
         }}
       >
         <div className="hero-overlay"></div>

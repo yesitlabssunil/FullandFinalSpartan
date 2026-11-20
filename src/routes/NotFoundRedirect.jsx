@@ -4,7 +4,6 @@ import {toast} from "react-toastify";
 
 const NotFoundRedirect = () => {
     const navigate = useNavigate();
-
 useEffect(()=> {
 toast.error("Page not found. Redirected to Home.", {
     autoClose: 1500,
