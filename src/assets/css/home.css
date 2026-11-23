@@ -2425,5 +2425,60 @@ span.dot-red {
         content-visibility: auto;
         contain-intrinsic-size: auto 1250px;
     }
+
+    .info-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 800px;
+    }
+
+    .problem-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1050px;
+    }
+
+    .risk-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 950px;
+    }
+
+    .solution-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1250px;
+    }
+
+    .pillars-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1250px;
+    }
+
+    .trust-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 750px;
+    }
+
+    .who-we-are-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1250px;
+    }
+
+    .focus-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1250px;
+    }
+
+    .process-flow-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1500px;
+    }
+
+    .resources-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 550px;
+    }
+
+    .faq-section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1150px;
+    }
 }
 /* ========== SHIVM NEW CHANGES END ========== */
