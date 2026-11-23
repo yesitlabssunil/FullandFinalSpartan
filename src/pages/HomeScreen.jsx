@@ -183,38 +183,27 @@ const HomeScreen = () => {
       />
       <Header />
 
-      <section
-        className="hero"
-        //   style={{
-        //     backgroundImage: `linear-gradient(rgba(10, 15, 30, 0.5), rgba(5, 10, 20, 0.6)), url(${
-        //       homeData?.hero?.backgroundImage
-        //         ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-        //         : "/images/hero-banner-bg.webp"
-        //     })`,
-        //     backgroundRepeat: "no-repeat",
-        //     backgroundSize: "cover",
-        //   }}
-        // >
-
-        //   style={{
-        //     backgroundImage: `url(${homeData?.hero?.backgroundImage
-        //       ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-        //       : "/images/hero-banner-bg.webp"
-        //       })`,
-        //     backgroundRepeat: "no-repeat",
-        //     backgroundSize: "cover",
-        //   }}
-        // > 
-        style={{
-          // ========== SHIVM NEW CHANGES START ==========
-          // Use locally optimized hero image (1920px WebP, ~89KB) instead of the
-          // 4500px API asset (~431KB) to reduce LCP weight on mobile and desktop.
-          backgroundImage: `url("/images/hero-banner-api.webp")`,
-          // ========== SHIVM NEW CHANGES END ==========
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
+      <section className="hero">
+        {/* ========== SHIVM NEW CHANGES START ========== */}
+        {/* Use img tag instead of CSS background to make hero the LCP element
+            with explicit dimensions for better LCP optimization and CLS prevention. */}
+        <img
+          src="/images/hero-banner-api.webp"
+          alt="CMMC 2.0 & NIST Compliance Consulting"
+          width="1920"
+          height="958"
+          fetchpriority="high"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        />
+        {/* ========== SHIVM NEW CHANGES END ========== */}
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
@@ -349,6 +338,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src="images/document-img-h.svg"
                 alt="Documentation without execution"
@@ -361,6 +352,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src="images/weak-cloud.svg" alt="Weak cloud security" />
             </div>
@@ -371,6 +364,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src="images/governance-gaps.svg" alt="Governance gaps" />
             </div>
@@ -381,6 +376,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src="images/poor-enforcement.svg"
                 alt="Poor policy enforcement"
@@ -393,6 +390,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon1} alt="Missing evidence" />
             </div>
@@ -403,6 +402,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src="images/audit-exposure.svg"
                 alt="Audit failure exposure"
@@ -540,6 +541,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={solutionIcons[index] || solutionIcons[0]}
                   alt={item.title}
@@ -628,6 +631,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon3} alt="" />
               </div>
@@ -638,6 +643,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Gap assessments
               </li>
@@ -645,6 +652,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Readiness roadmaps
               </li>
@@ -652,6 +661,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> SSP creation
               </li>
@@ -659,6 +670,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> POAM development
               </li>
@@ -666,6 +679,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Security controls
                 implementation
@@ -674,6 +689,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Audit preparation
               </li>
@@ -686,6 +703,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon2} alt="" />
               </div>
@@ -696,6 +715,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Identity management
               </li>
@@ -703,6 +724,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Conditional access
               </li>
@@ -710,6 +733,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Endpoint protection
               </li>
@@ -717,6 +742,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Secure cloud configuration
               </li>
@@ -724,6 +751,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Data governance
               </li>
@@ -731,6 +760,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Compliance controls
               </li>
@@ -743,6 +774,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon4} alt="" />
               </div>
@@ -753,6 +786,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Governance frameworks
               </li>
@@ -760,6 +795,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Policy architecture
               </li>
@@ -767,6 +804,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Business systems
               </li>
@@ -774,6 +813,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Documentation controls
               </li>
@@ -781,6 +822,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Continuous monitoring
               </li>
@@ -788,6 +831,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="16"
+                  height="16"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={checkBulletRed} alt="" /> Executive accountability
               </li>
@@ -815,6 +860,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon5} alt="" />
             </div>
@@ -829,6 +876,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon6} alt="" />
             </div>
@@ -843,6 +892,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon7} alt="" />
             </div>
@@ -857,6 +908,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon8} alt="" />
             </div>
@@ -897,6 +950,8 @@ const HomeScreen = () => {
                   <img
                     // ========== SHIVM NEW CHANGES START ==========
                     loading="lazy"
+                    width="24"
+                    height="24"
                     // ========== SHIVM NEW CHANGES END ==========
                     src="images/check-icon-militry.svg" alt="" />
                 </span>
@@ -917,9 +972,13 @@ const HomeScreen = () => {
           <div className="founder-card-container">
             <div className="founder-main-img">
               <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                width="400"
+                height="500"
+                // ========== SHIVM NEW CHANGES END ==========
                 src={`${IMAGE_URL}/${homeData?.whoWeAre?.founderCard?.image}`}
                 alt={homeData?.whoWeAre?.founderCard?.name || "Raphael Warren"}
-                loading="lazy"
               />
             </div>
 
@@ -958,6 +1017,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon17} alt="" />
             </div>
@@ -980,6 +1041,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon16} alt="" />
             </div>
@@ -999,6 +1062,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon9} alt="" />
             </div>
@@ -1022,6 +1087,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon10} alt="" />
             </div>
@@ -1044,6 +1111,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon15} alt="" />
             </div>
@@ -1066,6 +1135,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
+                width="64"
+                height="64"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon11} alt="" />
             </div>
@@ -1108,6 +1179,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon12} alt="" />
               </div>
@@ -1128,6 +1201,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon13} alt="" />
               </div>
@@ -1147,6 +1222,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon3} alt="" />
               </div>
@@ -1167,6 +1244,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
+                  width="64"
+                  height="64"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon14} alt="" />
               </div>

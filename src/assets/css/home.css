@@ -11,7 +11,7 @@
 .hero {
     /* margin-top: 80px; */
     /* min-height: clamp(500px, 80vh, 800px); original */
-    min-height: clamp(594px, 80vh, 800px); 
+    min-height: clamp(594px, 80vh, 800px);
     position: relative;
     display: flex;
     align-items: center;
@@ -19,6 +19,10 @@
     text-align: center;
     color: #ffffff;
     padding: 40px 20px;
+    /* ========== SHIVM NEW CHANGES START ========== */
+    /* Add aspect ratio to prevent CLS while hero image loads. */
+    aspect-ratio: 1920 / 958;
+    /* ========== SHIVM NEW CHANGES END ========== */
 }
 
 .hero-overlay {

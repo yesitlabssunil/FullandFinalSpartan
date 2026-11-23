@@ -102,8 +102,9 @@
   <!-- ========== SHIVM NEW CHANGES START ========== -->
   <!-- Bootstrap JS loaded deferred/local to keep it out of the initial JS bundle. -->
   <script defer src="/js/bootstrap.bundle.min.js"></script>
+  <!-- Main React script loaded async to reduce TBT (Total Blocking Time) on mobile. -->
+  <script async type="module" src="/src/main.jsx"></script>
   <!-- ========== SHIVM NEW CHANGES END ========== -->
-  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
