@@ -206,12 +206,11 @@ const HomeScreen = () => {
         //   }}
         // > 
         style={{
-          // We put the local fallback FIRST so it loads in 0.1s instead of waiting 800ms for the API
-          backgroundImage: `url("/images/hero-banner-bg.webp")`,
-          // If the API data exists, we override it smoothly
-          ...(homeData?.hero?.backgroundImage && {
-            backgroundImage: `url(${IMAGE_URL}/${homeData.hero.backgroundImage})`,
-          }),
+          // ========== SHIVM NEW CHANGES START ==========
+          // Use locally optimized hero image (1920px WebP, ~89KB) instead of the
+          // 4500px API asset (~431KB) to reduce LCP weight on mobile and desktop.
+          backgroundImage: `url("/images/hero-banner-api.webp")`,
+          // ========== SHIVM NEW CHANGES END ==========
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
