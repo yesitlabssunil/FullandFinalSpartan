@@ -347,6 +347,9 @@ const HomeScreen = () => {
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
                 src="images/document-img-h.svg"
                 alt="Documentation without execution"
               />
@@ -355,19 +358,30 @@ const HomeScreen = () => {
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
-              <img src="images/weak-cloud.svg" alt="Weak cloud security" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src="images/weak-cloud.svg" alt="Weak cloud security" />
             </div>
             <div className="prob-text">Weak cloud security</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
-              <img src="images/governance-gaps.svg" alt="Governance gaps" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src="images/governance-gaps.svg" alt="Governance gaps" />
             </div>
             <div className="prob-text">Governance gaps</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
                 src="images/poor-enforcement.svg"
                 alt="Poor policy enforcement"
               />
@@ -376,13 +390,20 @@ const HomeScreen = () => {
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
-              <img src={icon1} alt="Missing evidence" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon1} alt="Missing evidence" />
             </div>
             <div className="prob-text">Missing evidence</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
                 src="images/audit-exposure.svg"
                 alt="Audit failure exposure"
               />
@@ -517,6 +538,9 @@ const HomeScreen = () => {
             <div className="sol-card" key={index}>
               <div className="sol-card-icon">
                 <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
                   src={solutionIcons[index] || solutionIcons[0]}
                   alt={item.title}
                 />
@@ -601,29 +625,57 @@ const HomeScreen = () => {
           <div className="pillar-column-card fade-in visible">
             <div className="pillar-card-head">
               <div className="pillar-icon-red">
-                <img src={icon3} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon3} alt="" />
               </div>
               <h4>CMMC 2.0 Compliance</h4>
             </div>
             <ul className="pillar-list">
               <li>
-                <img src={checkBulletRed} alt="" /> Gap assessments
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Gap assessments
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Readiness roadmaps
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Readiness roadmaps
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> SSP creation
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> SSP creation
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> POAM development
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> POAM development
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Security controls
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Security controls
                 implementation
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Audit preparation
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Audit preparation
               </li>
             </ul>
           </div>
@@ -631,28 +683,56 @@ const HomeScreen = () => {
           <div className="pillar-column-card fade-in visible">
             <div className="pillar-card-head">
               <div className="pillar-icon-red">
-                <img src={icon2} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon2} alt="" />
               </div>
               <h4>Microsoft 365 Security</h4>
             </div>
             <ul className="pillar-list">
               <li>
-                <img src={checkBulletRed} alt="" /> Identity management
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Identity management
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Conditional access
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Conditional access
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Endpoint protection
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Endpoint protection
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Secure cloud configuration
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Secure cloud configuration
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Data governance
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Data governance
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Compliance controls
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Compliance controls
               </li>
             </ul>
           </div>
@@ -660,28 +740,56 @@ const HomeScreen = () => {
           <div className="pillar-column-card fade-in visible">
             <div className="pillar-card-head">
               <div className="pillar-icon-red">
-                <img src={icon4} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon4} alt="" />
               </div>
               <h4>Compliance Systems</h4>
             </div>
             <ul className="pillar-list">
               <li>
-                <img src={checkBulletRed} alt="" /> Governance frameworks
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Governance frameworks
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Policy architecture
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Policy architecture
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Business systems
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Business systems
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Documentation controls
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Documentation controls
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Continuous monitoring
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Continuous monitoring
               </li>
               <li>
-                <img src={checkBulletRed} alt="" /> Executive accountability
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={checkBulletRed} alt="" /> Executive accountability
               </li>
             </ul>
           </div>
@@ -704,7 +812,11 @@ const HomeScreen = () => {
         <div className="trust-boxes-grid">
           <div className="trust-box-card fade-in visible">
             <div className="trust-box-icon">
-              <img src={icon5} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon5} alt="" />
             </div>
             <h4>Military Leadership</h4>
             <p>
@@ -714,7 +826,11 @@ const HomeScreen = () => {
           </div>
           <div className="trust-box-card fade-in visible">
             <div className="trust-box-icon">
-              <img src={icon6} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon6} alt="" />
             </div>
             <h4>Audit-Ready Systems</h4>
             <p>
@@ -724,7 +840,11 @@ const HomeScreen = () => {
           </div>
           <div className="trust-box-card fade-in visible">
             <div className="trust-box-icon">
-              <img src={icon7} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon7} alt="" />
             </div>
             <h4>Specialized Expertise</h4>
             <p>
@@ -734,7 +854,11 @@ const HomeScreen = () => {
           </div>
           <div className="trust-box-card fade-in visible">
             <div className="trust-box-icon">
-              <img src={icon8} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon8} alt="" />
             </div>
             <h4>Contract Protection</h4>
             <p>
@@ -770,7 +894,11 @@ const HomeScreen = () => {
             ).map((item, index) => (
               <div className="checklist-row" key={index}>
                 <span className="chk-icon">
-                  <img src="images/check-icon-militry.svg" alt="" />
+                  <img
+                    // ========== SHIVM NEW CHANGES START ==========
+                    loading="lazy"
+                    // ========== SHIVM NEW CHANGES END ==========
+                    src="images/check-icon-militry.svg" alt="" />
                 </span>
                 <span className="chk-text">{item?.title}</span>
               </div>
@@ -827,7 +955,11 @@ const HomeScreen = () => {
         <div className="focus-grid">
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon17} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon17} alt="" />
             </div>
             <div>
               <h4>Audit Readiness</h4>
@@ -845,7 +977,11 @@ const HomeScreen = () => {
           </div>
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon16} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon16} alt="" />
             </div>
             <div>
               <h4>Contract Protection</h4>
@@ -860,7 +996,11 @@ const HomeScreen = () => {
           </div>
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon9} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon9} alt="" />
             </div>
             <div>
               <h4>Reduced Risk</h4>
@@ -879,7 +1019,11 @@ const HomeScreen = () => {
           </div>
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon10} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon10} alt="" />
             </div>
             <div>
               <h4>Security Resilience</h4>
@@ -897,7 +1041,11 @@ const HomeScreen = () => {
           </div>
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon15} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon15} alt="" />
             </div>
             <div>
               <h4>Leadership Confidence</h4>
@@ -915,7 +1063,11 @@ const HomeScreen = () => {
           </div>
           <div className="focus-card fade-in visible new-up">
             <div className="focus-icon trust-box-icon">
-              <img src={icon11} alt="" />
+              <img
+                // ========== SHIVM NEW CHANGES START ==========
+                loading="lazy"
+                // ========== SHIVM NEW CHANGES END ==========
+                src={icon11} alt="" />
             </div>
             <div>
               <h4>Competitive Positioning</h4>
@@ -953,7 +1105,11 @@ const HomeScreen = () => {
             </div>
             <div className="step-bottom-card">
               <div className="step-card-icon red-tint">
-                <img src={icon12} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon12} alt="" />
               </div>
               <p>
                 We evaluate your current cybersecurity environment, identify
@@ -969,7 +1125,11 @@ const HomeScreen = () => {
             </div>
             <div className="step-bottom-card">
               <div className="step-card-icon">
-                <img src={icon13} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon13} alt="" />
               </div>
               <p>
                 We develop a clear, prioritized compliance strategy aligned with
@@ -984,7 +1144,11 @@ const HomeScreen = () => {
             </div>
             <div className="step-bottom-card">
               <div className="step-card-icon">
-                <img src={icon3} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon3} alt="" />
               </div>
               <p>
                 We deploy security controls, harden your Microsoft 365
@@ -1000,7 +1164,11 @@ const HomeScreen = () => {
             </div>
             <div className="step-bottom-card">
               <div className="step-card-icon">
-                <img src={icon14} alt="" />
+                <img
+                  // ========== SHIVM NEW CHANGES START ==========
+                  loading="lazy"
+                  // ========== SHIVM NEW CHANGES END ==========
+                  src={icon14} alt="" />
               </div>
               <p>
                 We document evidence, validate control effectiveness and prepare
