@@ -3,14 +3,21 @@
 
 <head>
   <!-- Google Tag Manager (Placed as high in <head> as possible) -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5HG56XGC');</script>
+  <script>
+    // ========== SHIVM NEW CHANGES START ==========
+    // Defer GTM injection until after page load to reduce initial JS on mobile.
+    window.addEventListener('load', function () {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-5HG56XGC');
+    });
+    // ========== SHIVM NEW CHANGES END ==========
+  </script>
   <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
@@ -42,8 +49,23 @@
     content="CMMC compliance consultant helping defense contractors achieve CMMC 2.0 and NIST 800-171 certification with audit-ready, evidence-driven security programs." />
   <meta name="twitter:image" content="https://spartan-cs.com/assets/logo-DH4HSouC.png" />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <!-- ========== SHIVM NEW CHANGES START ========== -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- ========== SHIVM NEW CHANGES END ========== -->
   <!-- <link rel="icon" type="image/svg+xml" href="https://spartan-cs.com/assets/logo-DH4HSouC.png" /> -->
+
+  <!-- ========== SHIVM NEW CHANGES START ========== -->
+  <!-- Preload LCP hero image with high priority to improve LCP. -->
+  <link rel="preload" fetchpriority="high" as="image" href="/images/hero-banner-api.webp" />
+  <!-- ========== SHIVM NEW CHANGES END ========== -->
+
+  <!-- ========== SHIVM NEW CHANGES START ========== -->
+  <!-- Preconnect to API and third-party origins to reduce connection setup time. -->
+  <link rel="preconnect" href="https://spartanapi.yilstaging.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.clarity.ms" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <!-- ========== SHIVM NEW CHANGES END ========== -->
 
   <!-- Font Awesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -53,14 +75,21 @@
 
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "xt05s3ojdz");
+    // ========== SHIVM NEW CHANGES START ==========
+    // Defer Clarity injection until after page load to reduce initial JS on mobile.
+    window.addEventListener('load', function () {
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "xt05s3ojdz");
+    });
+    // ========== SHIVM NEW CHANGES END ==========
   </script>
 
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WGQPD5VK"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date()); </script>
+  <!-- ========== SHIVM NEW CHANGES START ========== -->
+  <!-- Removed duplicate GTM-WGQPD5VK and gtag init block. -->
+  <!-- ========== SHIVM NEW CHANGES END ========== -->
 </head>
 
 <body>
@@ -70,6 +99,10 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div id="root"></div>
+  <!-- ========== SHIVM NEW CHANGES START ========== -->
+  <!-- Bootstrap JS loaded deferred/local to keep it out of the initial JS bundle. -->
+  <script defer src="/js/bootstrap.bundle.min.js"></script>
+  <!-- ========== SHIVM NEW CHANGES END ========== -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
