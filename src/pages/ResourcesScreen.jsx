@@ -6,32 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 import SEO from "../component/SEO";
 
-import Content from "../assets/images/resourceScreen/Content.jpg";
-import puzzle from "../assets/images/resourceScreen/puzzle.png";
-import starShield from "../assets/images/resourceScreen/starShield.png";
-import image1 from "../assets/images/resourceScreen/image1.png";
-import image2 from "../assets/images/resourceScreen/image2.png";
-import image3 from "../assets/images/resourceScreen/image3.png";
-import tv from "../assets/images/resourceScreen/tv.png";
-import key from "../assets/images/resourceScreen/key.png";
-import hotspot from "../assets/images/resourceScreen/hotspot.png";
-import doc from "../assets/images/resourceScreen/doc.png";
-import medal from "../assets/images/resourceScreen/medal.png";
-import people from "../assets/images/resourceScreen/people.png";
-import relatedImg1 from "../assets/images/blogScreen/BlogThumbnail1.jpg";
-import relatedImg2 from "../assets/images/blogScreen/BlogThumbnail.jpg";
-import relatedImg3 from "../assets/images/blogScreen/BlogThumbnail2.jpg";
-import security from "../assets/images/complianceScreen/icon1.png";
-import warning from "../assets/images/securityScreen/warning.png";
-import envIcon1 from "../assets/images/industryScreen/env-icon1.png";
-import icon6 from "../assets/images/complianceScreen/icon6.png";
-import downloadIcon from "../assets/images/resourceScreen/download-icon.png";
-import cerBack from "../assets/images/resourceScreen/Vector1.png";
-import fortBack from "../assets/images/resourceScreen/Vector2.png";
-import shieldBack from "../assets/images/resourceScreen/Vector3.png";
+// ========== SHIVM NEW CHANGES START ==========
+// Removed unused image imports.
+// ========== SHIVM NEW CHANGES END ==========
 
-import { Link, useLocation } from "react-router-dom";
-import { BsDownload } from "react-icons/bs";
+// ========== SHIVM NEW CHANGES START ==========
+import { Link } from "react-router-dom";
+// ========== SHIVM NEW CHANGES END ==========
+// ========== SHIVM NEW CHANGES START ==========
+// Removed unused BsDownload import.
+// ========== SHIVM NEW CHANGES END ==========
 import {
   // getFaqData,
   resourceScreenData,
@@ -40,7 +24,9 @@ import {
 import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
 
 export default function ResourceScreen() {
-  const location = useLocation();
+  // ========== SHIVM NEW CHANGES START ==========
+  // Removed unused location variable.
+  // ========== SHIVM NEW CHANGES END ==========
   // const resourceCategories = [
   //   "All Resources",
   //   "Governance",
@@ -129,7 +115,7 @@ export default function ResourceScreen() {
   const dispatch = useDispatch();
   const resourceLibraryRef = useRef(null);
 
-  const { resourceData, loading, contactData } = useSelector(
+  const { resourceData, contactData } = useSelector(
     (state) => state.home
   );
 
@@ -139,7 +125,9 @@ export default function ResourceScreen() {
     setActiveFaqId(activeFaqId === id ? null : id);
   };
 
-  const engagements = [tv, hotspot, key, doc, medal, people];
+  // ========== SHIVM NEW CHANGES START ==========
+  // Removed unused engagements array.
+  // ========== SHIVM NEW CHANGES END ==========
 
   // const [activeCategory, setActiveCategory] = useState("All Resources");
   // const [currentPage, setCurrentPage] = useState(1);

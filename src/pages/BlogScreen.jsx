@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import "../assets/css/blog.css";
-import { Link, useParams, useLocation } from "react-router-dom";
+// ========== SHIVM NEW CHANGES START ==========
+import { Link, useParams } from "react-router-dom";
+// ========== SHIVM NEW CHANGES END ==========
 import { useDispatch, useSelector } from "react-redux";
 
-// Hero image – replace with your exported path
-import heroImage from "../assets/images/blogScreen/BlogThumbnail.jpg";
-
-// Images for "You also might like" cards – replace with your exported paths
-import relatedImg1 from "../assets/images/blogScreen/BlogThumbnail1.jpg";
-import relatedImg2 from "../assets/images/blogScreen/BlogThumbnail.jpg";
-import relatedImg3 from "../assets/images/blogScreen/BlogThumbnail2.jpg";
+// ========== SHIVM NEW CHANGES START ==========
+// Removed unused hero/related image imports.
+// ========== SHIVM NEW CHANGES END ==========
 import { getBlogDetails } from "../redux/slices/secondSlice";
 import SEO from "../component/SEO";
 import BlogHorizontalScroll from "../component/BlogHorizontalScroll";

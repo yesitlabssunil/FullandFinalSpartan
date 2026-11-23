@@ -5,13 +5,17 @@ import { resourceDetailScreen } from "../redux/slices/homeSlice";
 import { Link, useParams, useLocation } from "react-router-dom";
 import SEO from "../component/SEO";
 
-const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
+// ========== SHIVM NEW CHANGES START ==========
+// Removed unused IMAGE_URL constant.
+// ========== SHIVM NEW CHANGES END ==========
 
 // 1. DIRECT JSON IMPORT
 // import resourceDetailData from "../assets/jsonData/resourceDetailScreen.json";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import ResourceScreen from "./ResourcesScreen";
+// ========== SHIVM NEW CHANGES START ==========
+// Removed unused ResourcesScreen import to keep policy detail route isolated.
+// ========== SHIVM NEW CHANGES END ==========
 import BlogHorizontalScroll from "../component/BlogHorizontalScroll";
 
 const ResourceDetailScreen = () => {
@@ -20,7 +24,7 @@ const ResourceDetailScreen = () => {
   const resourceDescription = location.state?.description;
   const { slug } = useParams();
   const dispatch = useDispatch();
-  const { resourceStatus, resourceDetailScreenData, loading } = useSelector((state) => state.home);
+  const { resourceDetailScreenData } = useSelector((state) => state.home);
 
   useEffect(() => {
     // dispatch(resourceScreenData());

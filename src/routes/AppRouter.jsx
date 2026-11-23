@@ -1,22 +1,27 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
+// ========== SHIVM NEW CHANGES START ==========
+import { lazy, Suspense } from "react";
+// ========== SHIVM NEW CHANGES END ==========
 // import HomeScreen from "../pages/Home1";
 import HomeScreen from "../pages/HomeScreen";
-import BlogScreen from "../pages/BlogScreen";
-import ContactScreen from "../pages/ContactScreen";
-import ApproachScreen from "../pages/ApproachScreen";
-import ComplianceScreen from "../pages/ComplianceScreen";
-import IndustriesScreen from "../pages/IndustriesScreen";
-import SecurityScreen from "../pages/SecurityScreen";
-import CmmcScreen from "../pages/CmmcScreen";
-import ResourcesScreen from "../pages/ResourcesScreen";
-import AboutScreen from "../pages/AboutScreen";
 import NotFoundRedirect from "./NotFoundRedirect";
 import ScrollToTop from "./ScrollToTop";
 // import Faq from "../pages/Faq";
-import ResourceDetailScreen from "../pages/ResourceDetailScreen";
-import AllBlogs from "../pages/AllBlogs";
 import TrailingSlashRedirect from "./TrailingSlashRedirect";
-import CustomizePolicy from "../pages/CustomizePolicy";
+// ========== SHIVM NEW CHANGES START ==========
+const BlogScreen = lazy(() => import("../pages/BlogScreen"));
+const ContactScreen = lazy(() => import("../pages/ContactScreen"));
+const ApproachScreen = lazy(() => import("../pages/ApproachScreen"));
+const ComplianceScreen = lazy(() => import("../pages/ComplianceScreen"));
+const IndustriesScreen = lazy(() => import("../pages/IndustriesScreen"));
+const SecurityScreen = lazy(() => import("../pages/SecurityScreen"));
+const CmmcScreen = lazy(() => import("../pages/CmmcScreen"));
+const ResourcesScreen = lazy(() => import("../pages/ResourcesScreen"));
+const AboutScreen = lazy(() => import("../pages/AboutScreen"));
+const ResourceDetailScreen = lazy(() => import("../pages/ResourceDetailScreen"));
+const AllBlogs = lazy(() => import("../pages/AllBlogs"));
+const CustomizePolicy = lazy(() => import("../pages/CustomizePolicy"));
+// ========== SHIVM NEW CHANGES END ==========
 
 // ✅ NEW: redirects /resource/:slug → /policy/:slug (client-side)
 const ResourceToPolicyRedirect = () => {
@@ -31,6 +36,9 @@ const AppRouter = () => (
         <ScrollToTop />
 
         <TrailingSlashRedirect>
+            {/* ========== SHIVM NEW CHANGES START ========== */}
+            <Suspense fallback={null}>
+            {/* ========== SHIVM NEW CHANGES END ========== */}
             <Routes>
                 <Route path="/" element={
                     <HomeScreen />
@@ -101,6 +109,9 @@ const AppRouter = () => (
                 } />
 
             </Routes>
+            {/* ========== SHIVM NEW CHANGES START ========== */}
+            </Suspense>
+            {/* ========== SHIVM NEW CHANGES END ========== */}
         </TrailingSlashRedirect>
     </Router>
 )

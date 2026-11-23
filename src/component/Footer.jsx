@@ -4,19 +4,20 @@ import "../assets/css/footer.css";
 import logo from "../assets/images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 
+// ========== SHIVM NEW CHANGES START ==========
 import {
-  FaInstagram,
-  FaFacebookF,
-  FaXTwitter,
   FaLinkedinIn,
   FaEnvelope,
   FaLocationDot,
 } from "react-icons/fa6";
+// ========== SHIVM NEW CHANGES END ==========
 import { globalFooter } from "../redux/slices/secondSlice";
 
 const Footer = () => {
   const dispatch = useDispatch();
-  const { footerData, loading } = useSelector((state) => state.second);
+  // ========== SHIVM NEW CHANGES START ==========
+  const { footerData } = useSelector((state) => state.second);
+  // ========== SHIVM NEW CHANGES END ==========
 
   useEffect(() => {
     dispatch(globalFooter())
