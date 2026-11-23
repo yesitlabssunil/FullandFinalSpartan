@@ -3,7 +3,10 @@ import { createRoot } from "react-dom/client";
 // import './index.css'
 import "./assets/css/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// ========== SHIVM NEW CHANGES START ==========
+// Bootstrap JS is loaded as a deferred local script in index.html to reduce initial bundle size.
+// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// ========== SHIVM NEW CHANGES END ==========
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
