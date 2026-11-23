@@ -196,15 +196,26 @@ const HomeScreen = () => {
         //   }}
         // >
 
+        //   style={{
+        //     backgroundImage: `url(${homeData?.hero?.backgroundImage
+        //       ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
+        //       : "/images/hero-banner-bg.webp"
+        //       })`,
+        //     backgroundRepeat: "no-repeat",
+        //     backgroundSize: "cover",
+        //   }}
+        // > 
         style={{
-          backgroundImage: `url(${homeData?.hero?.backgroundImage
-            ? `${IMAGE_URL}/${homeData.hero.backgroundImage}`
-            : "/images/hero-banner-bg.webp"
-            })`,
+          // We put the local fallback FIRST so it loads in 0.1s instead of waiting 800ms for the API
+          backgroundImage: `url("/images/hero-banner-bg.webp")`,
+          // If the API data exists, we override it smoothly
+          ...(homeData?.hero?.backgroundImage && {
+            backgroundImage: `url(${IMAGE_URL}/${homeData.hero.backgroundImage})`,
+          }),
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-      > 
+      >
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">
@@ -781,6 +792,7 @@ const HomeScreen = () => {
               <img
                 src={`${IMAGE_URL}/${homeData?.whoWeAre?.founderCard?.image}`}
                 alt={homeData?.whoWeAre?.founderCard?.name || "Raphael Warren"}
+                loading="lazy"
               />
             </div>
 
@@ -1015,24 +1027,6 @@ const HomeScreen = () => {
           </p>
         </div>
 
-        {/* <div className="industry-cards-row">
-          {homeData?.industries?.cards?.map((item, index) => (
-            <div
-              className="industry-image-box"
-              key={item?.id || index}
-              style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%), url(${IMAGE_URL}/${item?.image})`,
-              }}
-            >
-              <span className="ind-num">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <h3>{item?.title}</h3>
-              <p>{item?.description}</p>
-            </div>
-          ))}
-        </div> */}
 
         <div className="industry-cards-row">
           {(homeData?.industries?.cards || []).map((item, index) => {

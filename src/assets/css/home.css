@@ -661,7 +661,7 @@ span.dot-black {
     text-align: center;
     background: linear-gradient(rgba(10, 15, 30, 0.7), rgba(5, 10, 20, 0.85)),
         url('/images/form-inner-page.svg') no-repeat center center/cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     /* Parallax effect if browser allows */
 }
 
@@ -1001,7 +1001,7 @@ span.dot-white {
     background-position: center;
     background-attachment: relative;
 }
-
+/* -------------------------------------------------------------------------------  */
 /* 2. Cards ka inline background hatane aur blur + shadow lagane ke liye */
 .service-image-card {
     /* !important lagane se HTML ka inline background automatic hat jayega */
@@ -1013,9 +1013,9 @@ span.dot-white {
     /* Image ke jaisa sharp/minimalist look */
 
     /* Image_e67ddd.png jaisa exact blur aur shadow effect */
-    -webkit-backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(10px);
     /* Safari support */
-    backdrop-filter: blur(28px);
+    backdrop-filter: blur(10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 
     display: flex;
