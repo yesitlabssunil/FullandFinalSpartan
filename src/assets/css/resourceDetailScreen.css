@@ -40,6 +40,37 @@
   /* padding: 0 32px; */
 }
 
+/* ========== SHIVM NEW CHANGES START ========== */
+/* Breadcrumb and Subtitle styles for Resource Detail hero */
+.blog-breadcrumb {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ff2e2e;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255, 46, 46, 0.25);
+  padding: 5px 15px;
+  border-radius: 50px;
+  background: rgba(255, 0, 0, 0.04);
+}
+
+.blog-breadcrumb .separator {
+  margin: 0 6px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.blog-hero-subtitle {
+  font-family: 'Geist', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #FFFFFF;
+  max-width: 760px;
+  margin-bottom: 0px;
+}
+/* ========== SHIVM NEW CHANGES END ========== */
+
 /* Pill Badge */
 .detail-resource-badge-pill {
   display: inline-flex;

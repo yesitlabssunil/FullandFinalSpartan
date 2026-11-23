@@ -183,27 +183,18 @@ const HomeScreen = () => {
       />
       <Header />
 
-      <section className="hero">
-        {/* ========== SHIVM NEW CHANGES START ========== */}
-        {/* Use img tag instead of CSS background to make hero the LCP element
-            with explicit dimensions for better LCP optimization and CLS prevention. */}
-        <img
-          src="/images/hero-banner-api.webp"
-          alt="CMMC 2.0 & NIST Compliance Consulting"
-          width="1920"
-          height="958"
-          fetchpriority="high"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: -1,
-          }}
-        />
-        {/* ========== SHIVM NEW CHANGES END ========== */}
+      <section
+        className="hero"
+        style={{
+          // ========== SHIVM NEW CHANGES START ==========
+          // Use locally optimized hero image (1920px WebP, ~89KB) instead of the
+          // 4500px API asset (~431KB) to reduce LCP weight on mobile and desktop.
+          backgroundImage: `url("/images/hero-banner-api.webp")`,
+          // ========== SHIVM NEW CHANGES END ==========
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">

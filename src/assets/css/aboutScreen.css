@@ -5,6 +5,82 @@
    .about-main {
     background-color: #ffffff;
   }
+
+/* ========== SHIVM NEW CHANGES START ========== */
+/* Hero section styles for About Screen */
+.blog-hero-fullwidth {
+  width: 100%;
+  margin: 0;
+  padding: 80px 0;
+  background: radial-gradient(circle at 8% 50%, rgba(150, 10, 10, 0.45) 0%, rgba(0, 0, 0, 0) 50%),
+              linear-gradient(to right, #0a0101 0%, #000000 100%);
+  background-color: #000000;
+}
+
+.blog-hero-content {
+  text-align: left;
+}
+
+.blog-breadcrumb {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ff2e2e;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255, 46, 46, 0.25);
+  padding: 5px 15px;
+  border-radius: 50px;
+  background: rgba(255, 0, 0, 0.04);
+}
+
+.blog-breadcrumb .separator {
+  margin: 0 6px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.blog-hero-title {
+  font-family: 'Overused Grotesk', sans-serif;
+  font-size: 62px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.blog-hero-subtitle {
+  font-family: 'Geist', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #FFFFFF;
+  max-width: 760px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 991px) {
+  .blog-hero-fullwidth {
+    padding: 50px 0;
+  }
+  .blog-hero-title {
+    font-size: 2rem;
+  }
+  .blog-hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .blog-breadcrumb {
+    font-size: 11px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-hero-title {
+    font-size: 1.75rem;
+  }
+}
+/* ========== SHIVM NEW CHANGES END ========== */
   
   .about-intro-section, .advantages-light-section {
     padding: 70px 0;

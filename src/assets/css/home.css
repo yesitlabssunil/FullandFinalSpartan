@@ -19,10 +19,6 @@
     text-align: center;
     color: #ffffff;
     padding: 40px 20px;
-    /* ========== SHIVM NEW CHANGES START ========== */
-    /* Add aspect ratio to prevent CLS while hero image loads. */
-    aspect-ratio: 1920 / 958;
-    /* ========== SHIVM NEW CHANGES END ========== */
 }
 
 .hero-overlay {
