@@ -183,18 +183,10 @@ const HomeScreen = () => {
       />
       <Header />
 
-      <section
-        className="hero"
-        style={{
-          // ========== SHIVM NEW CHANGES START ==========
-          // Use locally optimized hero image (1920px WebP, ~89KB) instead of the
-          // 4500px API asset (~431KB) to reduce LCP weight on mobile and desktop.
-          backgroundImage: `url("/images/hero-banner-api.webp")`,
-          // ========== SHIVM NEW CHANGES END ==========
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
+      {/* ========== SHIVM NEW CHANGES START ========== */}
+      {/* Background image is handled responsively in home.css (23KB on mobile, 89KB on desktop) */}
+      <section className="hero">
+      {/* ========== SHIVM NEW CHANGES END ========== */}
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">

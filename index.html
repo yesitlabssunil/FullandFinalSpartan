@@ -5,17 +5,45 @@
   <!-- Google Tag Manager (Placed as high in <head> as possible) -->
   <script>
     // ========== SHIVM NEW CHANGES START ==========
-    // Defer GTM injection until after page load to reduce initial JS on mobile.
-    window.addEventListener('load', function () {
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({
-          'gtm.start':
-            new Date().getTime(), event: 'gtm.js'
-        }); var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-5HG56XGC');
-    });
+    // Load third-party analytics (GTM & Clarity) on user interaction or idle
+    // to eliminate Total Blocking Time (TBT) on mobile while preserving full tracking.
+    (function () {
+      var loaded = false;
+      function loadAnalytics() {
+        if (loaded) return;
+        loaded = true;
+
+        // Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5HG56XGC');
+
+        // Microsoft Clarity
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "xt05s3ojdz");
+      }
+
+      var events = ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'];
+      events.forEach(function (e) {
+        window.addEventListener(e, loadAnalytics, { once: true, passive: true });
+      });
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function () { setTimeout(loadAnalytics, 3500); });
+      } else {
+        setTimeout(loadAnalytics, 4000);
+      }
+    })();
     // ========== SHIVM NEW CHANGES END ==========
   </script>
   <!-- End Google Tag Manager -->
@@ -55,8 +83,9 @@
   <!-- <link rel="icon" type="image/svg+xml" href="https://spartan-cs.com/assets/logo-DH4HSouC.png" /> -->
 
   <!-- ========== SHIVM NEW CHANGES START ========== -->
-  <!-- Preload LCP hero image with high priority to improve LCP. -->
-  <link rel="preload" fetchpriority="high" as="image" href="/images/hero-banner-api.webp" />
+  <!-- Responsive preload: load 23KB mobile hero on mobile (<768px), 89KB on desktop (>=768px) to maximize mobile LCP -->
+  <link rel="preload" fetchpriority="high" as="image" href="/images/hero-banner-mobile.webp" media="(max-width: 767px)" />
+  <link rel="preload" fetchpriority="high" as="image" href="/images/hero-banner-api.webp" media="(min-width: 768px)" />
   <!-- ========== SHIVM NEW CHANGES END ========== -->
 
   <!-- ========== SHIVM NEW CHANGES START ========== -->
@@ -73,22 +102,8 @@
 
     <link rel="alternate" href="https://spartan-cs.com" hreflang="en-us" />
 
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    // ========== SHIVM NEW CHANGES START ==========
-    // Defer Clarity injection until after page load to reduce initial JS on mobile.
-    window.addEventListener('load', function () {
-      (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "xt05s3ojdz");
-    });
-    // ========== SHIVM NEW CHANGES END ==========
-  </script>
-
   <!-- ========== SHIVM NEW CHANGES START ========== -->
-  <!-- Removed duplicate GTM-WGQPD5VK and gtag init block. -->
+  <!-- Removed duplicate GTM-WGQPD5VK and moved Clarity to unified deferred analytics block. -->
   <!-- ========== SHIVM NEW CHANGES END ========== -->
 </head>
 
@@ -100,8 +115,28 @@
 
   <div id="root"></div>
   <!-- ========== SHIVM NEW CHANGES START ========== -->
-  <!-- Bootstrap JS loaded deferred/local to keep it out of the initial JS bundle. -->
-  <script defer src="/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS loaded on interaction or idle to keep 80KB script off initial critical mobile path. -->
+  <script>
+    (function () {
+      var loaded = false;
+      function loadBootstrap() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = '/js/bootstrap.bundle.min.js';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+      ['touchstart', 'click', 'scroll'].forEach(function (e) {
+        window.addEventListener(e, loadBootstrap, { once: true, passive: true });
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function () { setTimeout(loadBootstrap, 2500); });
+      } else {
+        setTimeout(loadBootstrap, 3000);
+      }
+    })();
+  </script>
   <!-- ========== SHIVM NEW CHANGES END ========== -->
   <script type="module" src="/src/main.jsx"></script>
 </body>

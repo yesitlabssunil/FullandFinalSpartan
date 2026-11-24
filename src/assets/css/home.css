@@ -19,7 +19,22 @@
     text-align: center;
     color: #ffffff;
     padding: 40px 20px;
+    /* ========== SHIVM NEW CHANGES START ========== */
+    /* Responsive hero background: 89KB asset on desktop, 23KB mobile asset on mobile to optimize mobile LCP */
+    background-image: url("/images/hero-banner-api.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* ========== SHIVM NEW CHANGES END ========== */
 }
+
+/* ========== SHIVM NEW CHANGES START ========== */
+@media (max-width: 767px) {
+    .hero {
+        background-image: url("/images/hero-banner-mobile.webp") !important;
+    }
+}
+/* ========== SHIVM NEW CHANGES END ========== */
 
 .hero-overlay {
     position: absolute;

@@ -62,7 +62,8 @@ export function initHomeScripts() {
     }
 
     // 4. SOFT FADE-IN SCROLL REVEAL LOGIC
-    
+    // ========== SHIVM NEW CHANGES START ==========
+    // Use passive scroll listeners and one-time reveal to eliminate main-thread scroll blocking on mobile.
     const fadeElements = document.querySelectorAll('.fade-in');
     const handleScrollAnimation = () => {
         fadeElements.forEach(el => {
@@ -70,8 +71,8 @@ export function initHomeScripts() {
         });
     };
 
-    window.addEventListener('scroll', handleScrollAnimation);
-    window.addEventListener('load', handleScrollAnimation);
+    window.addEventListener('scroll', handleScrollAnimation, { passive: true });
+    window.addEventListener('load', handleScrollAnimation, { passive: true });
     
     // Run it once immediately for all elements
     handleScrollAnimation();
@@ -82,4 +83,5 @@ export function initHomeScripts() {
         window.removeEventListener('load', handleScrollAnimation);
         delete window.switchProcessTab; // Clean up global scope
     };
+    // ========== SHIVM NEW CHANGES END ==========
 }
