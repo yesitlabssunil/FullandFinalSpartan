@@ -186,7 +186,7 @@ const HomeScreen = () => {
       {/* ========== SHIVM NEW CHANGES START ========== */}
       {/* Background image is handled responsively in home.css (23KB on mobile, 89KB on desktop) */}
       <section className="hero">
-      {/* ========== SHIVM NEW CHANGES END ========== */}
+        {/* ========== SHIVM NEW CHANGES END ========== */}
         <div className="hero-overlay"></div>
         <div className="hero-content fade-in visible">
           <div className="badge-tag">

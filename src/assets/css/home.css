@@ -34,6 +34,7 @@
         background-image: url("/images/hero-banner-mobile.webp") !important;
     }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .hero-overlay {
@@ -49,8 +50,8 @@
     z-index: 10;
     max-width: 1340px;
     /* bottom: -29px; original */
-        /* bottom: -4px;  client head is cutting  */
-    bottom: -86px; 
+    /* bottom: -4px;  client head is cutting  */
+    bottom: -86px;
 }
 
 .badge-tag {
@@ -375,6 +376,7 @@ span.dot-black {
     line-height: 1.35;
     color: #18181B;
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 /* --- Animation CSS --- */
@@ -869,6 +871,7 @@ span.dot-white {
     object-fit: contain;
     display: block;
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .sol-card h3 {
@@ -1040,6 +1043,7 @@ span.dot-white {
     background-position: center;
     background-attachment: relative;
 }
+
 /* -------------------------------------------------------------------------------  */
 /* 2. Cards ka inline background hatane aur blur + shadow lagane ke liye */
 .service-image-card {
@@ -1198,6 +1202,7 @@ span.dot-white {
     object-fit: contain;
     display: block;
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .pillar-card-head h4 {
@@ -1291,8 +1296,8 @@ span.dot-white {
 .trust-box-icon {
     background-color: #fff0f1;
     color: var(--primary-red);
-    width: 38px;
-    height: 38px;
+    width: 24px;
+    height: 24px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -1309,6 +1314,7 @@ span.dot-white {
     object-fit: contain;
     display: block;
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .trust-box-card h4 {
@@ -2036,6 +2042,7 @@ span.dot-red {
     object-fit: contain;
     display: block;
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .step-bottom-card p {
@@ -2333,6 +2340,7 @@ span.dot-red {
         gap: 25px;
     }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 /* --- 17. Interactive FAQ Accordion Layout --- */
@@ -2632,4 +2640,5 @@ span.dot-red {
         contain-intrinsic-size: auto 1150px;
     }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
