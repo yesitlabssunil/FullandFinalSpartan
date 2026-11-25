@@ -91,12 +91,15 @@
   .blog-hero-fullwidth {
     padding: 50px 0;
   }
+
   .blog-hero-title {
     font-size: 2rem;
   }
+
   .blog-hero-subtitle {
     font-size: 0.95rem;
   }
+
   .blog-breadcrumb {
     font-size: 11px;
     padding: 4px 12px;
@@ -108,6 +111,7 @@
     font-size: 1.75rem;
   }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .standard-hero-gradient {
@@ -116,6 +120,7 @@
     linear-gradient(to right, #0a0101 0%, #000000 100%);
   background-color: #000000;
 }
+
 .sec-body-text1 {
   font-family: 'Geist', sans-serif;
   font-size: 17px;
@@ -230,7 +235,8 @@
   /* This ensures the border changes color smoothly on state flip */
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease !important;
 }
-.cmmc-level-card:hover{
+
+.cmmc-level-card:hover {
   border: 1px solid #E62222 !important;
   box-shadow: 0px 10px 30px rgba(230, 34, 34, 0.04) !important;
 }
@@ -607,8 +613,8 @@ main.security-main .active-process-focus {
 /* Section 7: CMMC Risk Analysis Section matching Figma */
 .cmmc-risk-section {
   background: radial-gradient(circle at 10% 50%, rgba(160, 10, 10, 0.18) 0%, rgba(0, 0, 0, 0) 50%),
-              radial-gradient(circle at 90% 50%, rgba(160, 10, 10, 0.18) 0%, rgba(0, 0, 0, 0) 50%),
-              #0A0A0A !important;
+    radial-gradient(circle at 90% 50%, rgba(160, 10, 10, 0.18) 0%, rgba(0, 0, 0, 0) 50%),
+    #0A0A0A !important;
   padding: 100px 4% 110px 4% !important;
   position: relative;
 }
@@ -739,7 +745,7 @@ main.security-main .active-process-focus {
   display: block;
 }
 
-.dark-list-item-with-icon > div:last-child {
+.dark-list-item-with-icon>div:last-child {
   display: contents;
 }
 
@@ -786,6 +792,7 @@ main.security-main .active-process-focus {
     border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
   }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 /* ==========================================================================
@@ -878,7 +885,7 @@ main.security-main .active-process-focus {
      ========================================================================= */
 
 .cmmc-radiant-cta-card {
-    background: radial-gradient(ellipse at 85% 30%, rgba(139, 0, 0, 0.40) 0%, rgba(80, 0, 0, 0.22) 30%, rgba(0, 0, 0, 0) 65%), #000;
+  background: radial-gradient(ellipse at 85% 30%, rgba(139, 0, 0, 0.40) 0%, rgba(80, 0, 0, 0.22) 30%, rgba(0, 0, 0, 0) 65%), #000;
   border: 1px solid #1A1919 !important;
   border-radius: 10px !important;
   padding: 60px 40px !important;
@@ -1060,7 +1067,7 @@ main.security-main .active-process-focus {
 }
 
 .faq-accordion-row:first-child {
-  border-top: 1px solid #ECECEE;
+  /* border-top: 1px solid #ECECEE; */
 }
 
 .faq-row-trigger-line {
@@ -1123,6 +1130,7 @@ main.security-main .active-process-focus {
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1157,4 +1165,5 @@ main.security-main .active-process-focus {
     font-size: 32px;
   }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
