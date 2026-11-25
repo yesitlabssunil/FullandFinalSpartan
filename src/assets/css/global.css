@@ -150,3 +150,207 @@ body {
   }
 }
 /* ========== SHIVM NEW CHANGES END ========== */
+
+/* ========== SHIVM NEW CHANGES START ========== */
+/* FAQ Section 2-Column Layout matching Figma */
+.resource-faq-section {
+  background-color: #f8f9fa;
+  width: 100%;
+  padding-top: 90px;
+  padding-bottom: 70px;
+}
+
+.section-inner-content.faq-layout-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  padding: 0 24px;
+}
+
+.faq-left-header-panel {
+  position: sticky;
+  top: 100px;
+  text-align: left;
+}
+
+.faq-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #FF0000;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background-color: #FEECEC;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.faq-mini-badge .badge-dot-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #FF0000;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.faq-panel-title {
+  font-family: 'Overused Grotesk', 'Geist', sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.25;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.faq-left-header-panel .btn-red-action {
+  background-color: #E50914;
+  color: #ffffff !important;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 28px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(229, 9, 20, 0.25);
+  width: fit-content;
+}
+
+.faq-left-header-panel .btn-red-action:hover {
+  background-color: #c9000b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.35);
+}
+
+.faq-right-accordion-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.faq-accordion-row {
+  border-bottom: 1px solid #ECECEE;
+  padding: 24px 0;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s ease;
+}
+
+.faq-accordion-row:first-child {
+  padding-top: 0;
+}
+
+.faq-row-trigger-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.faq-question-text {
+  font-family: 'Geist', 'Overused Grotesk', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #18181B;
+  line-height: 1.4;
+  margin: 0;
+  text-align: left;
+}
+
+.faq-accordion-row:hover .faq-question-text {
+  color: #18181B !important;
+}
+
+.faq-toggle-circle-indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-toggle-circle-indicator.inactive-plus {
+  background-color: #F4F4F5;
+  border: 1px solid #E4E4E7;
+}
+
+.faq-accordion-row:hover .faq-toggle-circle-indicator.inactive-plus {
+  background-color: #F4F4F5 !important;
+  border-color: #E4E4E7 !important;
+}
+
+.faq-toggle-circle-indicator.active-minus {
+  background-color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+.faq-accordion-row:hover .faq-toggle-circle-indicator.active-minus {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.faq-row-collapsible-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-accordion-row.is-expanded .faq-row-collapsible-content {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner-wrapper {
+  overflow: hidden;
+  padding-right: 40px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.faq-accordion-row.is-expanded .faq-answer-inner-wrapper {
+  opacity: 1;
+}
+
+.faq-answer-paragraph {
+  font-family: 'Geist', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #71717A;
+  margin: 0;
+  padding-top: 14px;
+  text-align: left;
+}
+
+@media (max-width: 992px) {
+  .section-inner-content.faq-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .faq-left-header-panel {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .faq-panel-title {
+    font-size: 32px;
+  }
+}
+/* ========== SHIVM NEW CHANGES END ========== */

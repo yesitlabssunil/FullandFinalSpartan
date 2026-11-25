@@ -1067,7 +1067,7 @@ main.security-main .active-process-focus {
 }
 
 .faq-accordion-row:first-child {
-  /* border-top: 1px solid #ECECEE; */
+  padding-top: 0;
 }
 
 .faq-row-trigger-line {
@@ -1075,6 +1075,7 @@ main.security-main .active-process-focus {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
 .faq-question-text {
@@ -1085,11 +1086,10 @@ main.security-main .active-process-focus {
   line-height: 1.4;
   margin: 0;
   text-align: left;
-  transition: color 0.2s ease;
 }
 
 .faq-accordion-row:hover .faq-question-text {
-  color: #E50914;
+  color: #18181B !important;
 }
 
 .faq-toggle-circle-indicator {
@@ -1100,45 +1100,48 @@ main.security-main .active-process-focus {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 0.25s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .faq-toggle-circle-indicator.inactive-plus {
   background-color: #F4F4F5;
+  border: 1px solid #E4E4E7;
 }
 
 .faq-accordion-row:hover .faq-toggle-circle-indicator.inactive-plus {
-  background-color: #E4E4E7;
+  background-color: #F4F4F5 !important;
+  border-color: #E4E4E7 !important;
 }
 
 .faq-toggle-circle-indicator.active-minus {
-  background-color: #E50914;
+  background-color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+.faq-accordion-row:hover .faq-toggle-circle-indicator.active-minus {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
 }
 
 .faq-row-collapsible-content {
-  display: none;
-  padding-top: 14px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-accordion-row.is-expanded .faq-row-collapsible-content {
-  display: block;
-  animation: faqFadeIn 0.25s ease;
-}
-
-@keyframes faqFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  grid-template-rows: 1fr;
 }
 
 .faq-answer-inner-wrapper {
+  overflow: hidden;
   padding-right: 40px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.faq-accordion-row.is-expanded .faq-answer-inner-wrapper {
+  opacity: 1;
 }
 
 .faq-answer-paragraph {
@@ -1147,6 +1150,7 @@ main.security-main .active-process-focus {
   line-height: 1.65;
   color: #71717A;
   margin: 0;
+  padding-top: 14px;
   text-align: left;
 }
 
@@ -1165,5 +1169,4 @@ main.security-main .active-process-focus {
     font-size: 32px;
   }
 }
-
 /* ========== SHIVM NEW CHANGES END ========== */

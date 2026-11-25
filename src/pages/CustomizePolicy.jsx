@@ -189,18 +189,18 @@ const CustomizePolicy = () => {
             formData.businessEmail.trim() &&
             formData.phoneNumber.trim()
 
-            if (!isFormValid) {
-                return "Please fill all required fields with *";
-            }
-        
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-            if (!emailRegex.test(formData.businessEmail.trim())) {
-                return "Please enter a valid business email address.";
-            }
-        
-            return null;
+        if (!isFormValid) {
+            return "Please fill all required fields with *";
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(formData.businessEmail.trim())) {
+            return "Please enter a valid business email address.";
+        }
+
+        return null;
 
         // return isFormValid;
     };
@@ -388,7 +388,7 @@ const CustomizePolicy = () => {
                 <div className="section-inner-content">
                     <div className="intake-header">
                         <h2>Policy Customization Intake</h2>
-                        <span className="required-notice"><span className='star'>*</span> Required Fields</span>
+                        {/* <span className="required-notice"><span className='star'>*</span> Required Fields</span> */}
                     </div>
                     <p className="intake-subheader">
                         A snapshot of the certifications, congressional recognitions and industry honors Spartan has received.
@@ -889,9 +889,9 @@ const CustomizePolicy = () => {
                                 </div>
                                 <div className="form-field">
                                     <label>Phone Number <span className='star'>*</span></label>
-                                    <input type="tel" name="phoneNumber" placeholder="1234567..." value={formData.phoneNumber} onChange={handleInputChange} 
-                                    maxLength={10}
-                                    inputMode="numeric"
+                                    <input type="tel" name="phoneNumber" placeholder="1234567..." value={formData.phoneNumber} onChange={handleInputChange}
+                                        maxLength={10}
+                                        inputMode="numeric"
                                     />
                                 </div>
                             </div>

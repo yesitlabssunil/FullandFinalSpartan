@@ -72,24 +72,24 @@ const CmmcScreen = () => {
   };
 
 
-const breadcrumbSchema = {
-  "@type": "BreadcrumbList",
-  "@id": "https://spartan-cs.com/cmmc#breadcrumb",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home Page",
-      "item": "https://spartan-cs.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "CMMC 2.0",
-      "item": "https://spartan-cs.com/cmmc"
-    }
-  ]
-};
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": "https://spartan-cs.com/cmmc#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home Page",
+        "item": "https://spartan-cs.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CMMC 2.0",
+        "item": "https://spartan-cs.com/cmmc"
+      }
+    ]
+  };
 
 
   return (
@@ -886,16 +886,16 @@ const breadcrumbSchema = {
                 alt="Spartan Cyber Security Logo"
                 className="signature-logo me-3"
               />
-              <span className="signature-brand-text">
+              {/* <span className="signature-brand-text">
                 operates at that level.
-              </span>
+              </span> */}
             </div>
           </div>
         </section>
 
         {/* ===========new faq section============== */}
 
-        <section className="resource-faq-section" style={{marginBottom: "40px"}}>
+        <section className="resource-faq-section" style={{ marginBottom: "40px" }}>
           <div className="section-inner-content faq-layout-grid">
             {/* Left Column Sticky Header Block */}
             <div className="faq-left-header-panel">

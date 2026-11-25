@@ -619,6 +619,7 @@ const HomeScreen = () => {
               <h4>CMMC 2.0 Compliance</h4>
             </div>
             <ul className="pillar-list">
+
               <li>
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
@@ -904,13 +905,17 @@ const HomeScreen = () => {
 
       <section className="who-we-are-section">
         <div className="who-left-col">
-          <span className="section-tag-red no-mar">
-            <span className="dot-red"></span> WHO WE ARE
-          </span>
-          <h2>
-            {homeData?.whoWeAre?.title ||
-              "Military Leadership Meets Operational Cybersecurity"}
-          </h2>
+          {/* ========== SHIVM NEW CHANGES START ========== */}
+          <div className="who-header-block">
+            <span className="section-tag-red no-mar">
+              <span className="dot-red"></span> WHO WE ARE
+            </span>
+            <h2>
+              {homeData?.whoWeAre?.title ||
+                "Military Leadership Meets Operational Cybersecurity"}
+            </h2>
+          </div>
+          {/* ========== SHIVM NEW CHANGES END ========== */}
 
           <div className="strategic-checklist-box">
             {(homeData?.whoWeAre?.checklist &&

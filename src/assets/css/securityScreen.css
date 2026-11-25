@@ -2,81 +2,85 @@
      background-color: #ffffff;
    }
 
-/* ========== SHIVM NEW CHANGES START ========== */
-/* Hero section styles for Security Screen */
-.blog-hero-fullwidth {
-  width: 100%;
-  margin: 0;
-  padding: 80px 0;
-  background: radial-gradient(circle at 8% 50%, rgba(150, 10, 10, 0.45) 0%, rgba(0, 0, 0, 0) 50%),
-              linear-gradient(to right, #0a0101 0%, #000000 100%);
-  background-color: #000000;
-}
+   /* ========== SHIVM NEW CHANGES START ========== */
+   /* Hero section styles for Security Screen */
+   .blog-hero-fullwidth {
+     width: 100%;
+     margin: 0;
+     padding: 80px 0;
+     background: radial-gradient(circle at 8% 50%, rgba(150, 10, 10, 0.45) 0%, rgba(0, 0, 0, 0) 50%),
+       linear-gradient(to right, #0a0101 0%, #000000 100%);
+     background-color: #000000;
+   }
 
-.blog-hero-content {
-  text-align: left;
-}
+   .blog-hero-content {
+     text-align: left;
+   }
 
-.blog-breadcrumb {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  color: #ff2e2e;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  border: 1px solid rgba(255, 46, 46, 0.25);
-  padding: 5px 15px;
-  border-radius: 50px;
-  background: rgba(255, 0, 0, 0.04);
-}
+   .blog-breadcrumb {
+     display: inline-block;
+     font-size: 11px;
+     font-weight: 600;
+     color: #ff2e2e;
+     margin-bottom: 25px;
+     text-transform: uppercase;
+     letter-spacing: 1.5px;
+     border: 1px solid rgba(255, 46, 46, 0.25);
+     padding: 5px 15px;
+     border-radius: 50px;
+     background: rgba(255, 0, 0, 0.04);
+   }
 
-.blog-breadcrumb .separator {
-  margin: 0 6px;
-  color: rgba(255, 255, 255, 0.2);
-}
+   .blog-breadcrumb .separator {
+     margin: 0 6px;
+     color: rgba(255, 255, 255, 0.2);
+   }
 
-.blog-hero-title {
-  font-family: 'Overused Grotesk', sans-serif;
-  font-size: 62px;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 20px;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
+   .blog-hero-title {
+     font-family: 'Overused Grotesk', sans-serif;
+     font-size: 62px;
+     font-weight: 500;
+     color: #ffffff;
+     margin-bottom: 20px;
+     line-height: 1.15;
+     letter-spacing: -0.01em;
+   }
 
-.blog-hero-subtitle {
-  font-family: 'Geist', sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.4;
-  color: #FFFFFF;
-  max-width: 760px;
-  margin-bottom: 0px;
-}
+   .blog-hero-subtitle {
+     font-family: 'Geist', sans-serif;
+     font-size: 1.15rem;
+     line-height: 1.4;
+     color: #FFFFFF;
+     max-width: 760px;
+     margin-bottom: 0px;
+   }
 
-@media (max-width: 991px) {
-  .blog-hero-fullwidth {
-    padding: 50px 0;
-  }
-  .blog-hero-title {
-    font-size: 2rem;
-  }
-  .blog-hero-subtitle {
-    font-size: 0.95rem;
-  }
-  .blog-breadcrumb {
-    font-size: 11px;
-    padding: 4px 12px;
-  }
-}
+   @media (max-width: 991px) {
+     .blog-hero-fullwidth {
+       padding: 50px 0;
+     }
 
-@media (max-width: 576px) {
-  .blog-hero-title {
-    font-size: 1.75rem;
-  }
-}
-/* ========== SHIVM NEW CHANGES END ========== */
+     .blog-hero-title {
+       font-size: 2rem;
+     }
+
+     .blog-hero-subtitle {
+       font-size: 0.95rem;
+     }
+
+     .blog-breadcrumb {
+       font-size: 11px;
+       padding: 4px 12px;
+     }
+   }
+
+   @media (max-width: 576px) {
+     .blog-hero-title {
+       font-size: 1.75rem;
+     }
+   }
+
+   /* ========== SHIVM NEW CHANGES END ========== */
 
    .sec-light-section {
      padding: 70px 0;
@@ -165,7 +169,8 @@
 
    .section-sub-heading {
      font-size: 1.05rem;
-     color: #64748B;
+     /* color: #64748B; */
+     color: rgba(0, 0, 0, 0.698);
      max-width: 680px;
      margin: 0 auto;
      line-height: 1.55;
@@ -523,8 +528,8 @@
        width: 100%;
      }
 
-     .section-main-heading1{
-      font-size: 32px;
+     .section-main-heading1 {
+       font-size: 32px;
      }
    }
 
@@ -653,62 +658,105 @@
      line-height: 1;
    }
 
-   /* --- SECTION 7: EXACT GRID UI LAYOUT WITHOUT BOXES --- */
+   /* ========== SHIVM NEW CHANGES START ========== */
+   /* --- SECTION 7: EXACT GRID UI LAYOUT MATCHING FIGMA --- */
    .figma-monitoring-grid {
-     border: 1px solid rgba(255, 255, 255, 0.06);
-     background: rgba(255, 255, 255, 0.01);
-     border-radius: 6px;
+     background: rgba(255, 255, 255, 0.02);
+     border: 1px solid rgba(255, 255, 255, 0.07);
+     border-radius: 12px;
      overflow: hidden;
+     width: 100%;
+     max-width: 1220px;
+     margin: 0 auto;
+     backdrop-filter: blur(12px);
+     -webkit-backdrop-filter: blur(12px);
    }
 
    .figma-monitoring-grid .grid-item {
-     border-color: rgba(255, 255, 255, 0.06) !important;
+     padding: 24px 35px;
+   }
+
+   .figma-monitoring-grid .border-bottom {
+     border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
    }
 
    .figma-monitoring-grid .dark-list-item-with-icon {
+     display: block;
      background: transparent !important;
      border: none !important;
-     padding: 32px;
+     padding: 0;
      border-radius: 0;
+     height: auto;
    }
 
    .figma-monitoring-grid .dark-list-icon-wrapper {
      background: transparent !important;
      width: auto;
      height: auto;
+     display: inline-flex;
+     align-items: center;
+     vertical-align: middle;
+     margin-right: 10px;
    }
 
    .figma-monitoring-grid .dark-list-icon-wrapper img {
-     width: 24px;
-     height: 24px;
+     width: 18px;
+     height: 18px;
+     object-fit: contain;
+     display: block;
    }
 
+   .figma-monitoring-grid .dark-list-item-with-icon>div:last-child {
+     display: contents;
+   }
+
+   .figma-monitoring-grid .dark-list-item-with-icon h3,
    .figma-monitoring-grid h6 {
-     /* font-family: 'Overused Grotesk', sans-serif; */
-     font-size: 1.1rem;
+     display: inline-block;
+     vertical-align: middle;
+     font-family: 'Geist', 'Overused Grotesk', sans-serif;
+     font-size: 16.5px;
      font-weight: 600;
-     color: #ffffff;
-     margin-bottom: 8px;
+     color: #FFFFFF !important;
+     line-height: 1.3;
+     margin: 0;
    }
 
+   .figma-monitoring-grid .dark-list-item-with-icon p,
    .figma-monitoring-grid p {
+     display: block;
      font-family: 'Geist', sans-serif;
-     color: #FFFFFFB2;
-     font-size: 0.92rem;
-     line-height: 1.6;
+     font-size: 14px;
+     font-weight: 400;
+     color: #A1A1AA !important;
+     line-height: 1.5;
+     margin-top: 8px;
+     margin-bottom: 0;
+     white-space: nowrap;
+   }
+
+   @media (max-width: 1200px) {
+
+     .figma-monitoring-grid .dark-list-item-with-icon p,
+     .figma-monitoring-grid p {
+       white-space: normal;
+     }
    }
 
    /* Responsive fixes for the grid system lines */
    @media (max-width: 767px) {
      .figma-monitoring-grid .grid-item {
        border-right: none !important;
-       border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+       border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+       padding: 20px 24px;
      }
 
      .figma-monitoring-grid .grid-item:last-child {
        border-bottom: none !important;
      }
    }
+
+   /* ========== SHIVM NEW CHANGES END ========== */
 
    .content-column {
      padding-right: 155px;
