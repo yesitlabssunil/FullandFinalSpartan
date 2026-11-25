@@ -316,14 +316,14 @@ const HomeScreen = () => {
         </div>
 
         <div className="problems-grid">
+          {/* ========== SHIVM NEW CHANGES START ========== */}
+          {/* Problem section cards UI matching Figma: 22px crisp icons inside rounded badge */}
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
+                width="22"
+                height="22"
                 src="images/document-img-h.svg"
                 alt="Documentation without execution"
               />
@@ -333,35 +333,33 @@ const HomeScreen = () => {
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
-                src="images/weak-cloud.svg" alt="Weak cloud security" />
+                width="22"
+                height="22"
+                src="images/weak-cloud.svg"
+                alt="Weak cloud security"
+              />
             </div>
             <div className="prob-text">Weak cloud security</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
-                src="images/governance-gaps.svg" alt="Governance gaps" />
+                width="22"
+                height="22"
+                src="images/governance-gaps.svg"
+                alt="Governance gaps"
+              />
             </div>
             <div className="prob-text">Governance gaps</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
+                width="22"
+                height="22"
                 src="images/poor-enforcement.svg"
                 alt="Poor policy enforcement"
               />
@@ -371,29 +369,28 @@ const HomeScreen = () => {
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
-                src={icon1} alt="Missing evidence" />
+                width="22"
+                height="22"
+                src="images/missing-evidence.svg"
+                alt="Missing evidence"
+              />
             </div>
             <div className="prob-text">Missing evidence</div>
           </div>
           <div className="problem-item fade-in visible">
             <div className="prob-icon">
               <img
-                // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
-                // ========== SHIVM NEW CHANGES END ==========
+                width="22"
+                height="22"
                 src="images/audit-exposure.svg"
                 alt="Audit failure exposure"
               />
             </div>
             <div className="prob-text">Audit failure exposure</div>
           </div>
+          {/* ========== SHIVM NEW CHANGES END ========== */}
         </div>
       </section>
 
@@ -524,8 +521,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={solutionIcons[index] || solutionIcons[0]}
                   alt={item.title}
@@ -614,8 +611,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon3} alt="" />
               </div>
@@ -686,8 +683,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon2} alt="" />
               </div>
@@ -757,8 +754,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon4} alt="" />
               </div>
@@ -843,8 +840,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
+                width="20"
+                height="20"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon5} alt="" />
             </div>
@@ -859,8 +856,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
+                width="20"
+                height="20"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon6} alt="" />
             </div>
@@ -875,8 +872,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
+                width="20"
+                height="20"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon7} alt="" />
             </div>
@@ -891,8 +888,8 @@ const HomeScreen = () => {
               <img
                 // ========== SHIVM NEW CHANGES START ==========
                 loading="lazy"
-                width="64"
-                height="64"
+                width="20"
+                height="20"
                 // ========== SHIVM NEW CHANGES END ==========
                 src={icon8} alt="" />
             </div>
@@ -1162,8 +1159,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon12} alt="" />
               </div>
@@ -1184,8 +1181,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon13} alt="" />
               </div>
@@ -1205,8 +1202,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon3} alt="" />
               </div>
@@ -1227,8 +1224,8 @@ const HomeScreen = () => {
                 <img
                   // ========== SHIVM NEW CHANGES START ==========
                   loading="lazy"
-                  width="64"
-                  height="64"
+                  width="20"
+                  height="20"
                   // ========== SHIVM NEW CHANGES END ==========
                   src={icon14} alt="" />
               </div>
@@ -1290,11 +1287,13 @@ const HomeScreen = () => {
 
       <section className="resources-section conpad">
         <div className="text-center section-header-margin">
+          {/* ========== SHIVM NEW CHANGES START ========== */}
           <span className="badge-red-pill">
-            <span className="dot-red"></span>RESOURCES
+            <span className="dot-red"></span>POLICIES
           </span>
+          {/* ========== SHIVM NEW CHANGES END ========== */}
           <h2>
-            {homeData?.resources?.title || "CMMC 2.0 Compliance Resources"}
+            {homeData?.resources?.title || "Compliance Intelligence that Keeps You Ahead"}
           </h2>
           <p className="resources-subtext">
             {homeData?.resources?.description ||
@@ -1303,6 +1302,14 @@ const HomeScreen = () => {
         </div>
 
         <BlogHorizontalScroll items={safeArray(homeData?.resources?.cards)} />
+
+        {/* ========== SHIVM NEW CHANGES START ========== */}
+        <div className="policies-footer-action text-center">
+          <Link to="/policies" className="btn-browse-policies">
+            Browse all Policies <span className="arrow-icon">&rarr;</span>
+          </Link>
+        </div>
+        {/* ========== SHIVM NEW CHANGES END ========== */}
       </section>
 
       <section className="faq-section">

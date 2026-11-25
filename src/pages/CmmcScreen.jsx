@@ -661,11 +661,13 @@ const breadcrumbSchema = {
         <section className="cmmc-risk-section text-center pt-5">
           <div className="custom-container">
             {/* Section Header Tag Block */}
-            <div className="section-tag-wrapper">
+            {/* ========== SHIVM NEW CHANGES START ========== */}
+            <div className="section-tag-wrapper justify-content-center">
               <span className="section-mini-tag dark-theme-tag">
                 <span className="fallback-red-dot"></span>THE RISK OF WAITING
               </span>
             </div>
+            {/* ========== SHIVM NEW CHANGES END ========== */}
 
             {/* Header and Subtext Framework */}
             <h2
