@@ -249,6 +249,18 @@
      RESPONSIVE DESIGN CORRECTIONS
      ========================================================================== */
   
+  /* ========== SHIVM NEW CHANGES START ========== */
+/* Tablet & Responsive: All form labels 13px on tab / responsive viewports */
+@media (max-width: 1024px) {
+  .contact-consultation-form .form-label-custom,
+  .form-label-custom,
+  label.form-label-custom {
+    font-size: 13px !important;
+  }
+}
+/* ========== SHIVM NEW CHANGES END ========== */
+
+  
   @media (max-width: 991px) {
     .contact-body-section {
       padding-top: 50px;
