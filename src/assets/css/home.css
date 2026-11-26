@@ -132,6 +132,7 @@ span.dot-black {
     justify-content: center;
     transition: var(--transition-speed);
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 .btn-transparent:hover {
@@ -437,7 +438,7 @@ span.dot-black {
 
 
 
-/* ========== SHIVM NEW CHANGES START ========== */
+    /* ========== SHIVM NEW CHANGES START ========== */
     /* Hero section adjustments for mobile responsiveness */
     .hero {
         min-height: auto !important;
@@ -475,7 +476,8 @@ span.dot-black {
         justify-content: center;
         text-align: center;
     }
-/* ========== SHIVM NEW CHANGES END ========== */
+
+    /* ========== SHIVM NEW CHANGES END ========== */
 
     /* Layout Ribbons & Content */
     .ribbon-container {
@@ -1394,7 +1396,7 @@ span.dot-white {
     }
 
     .pillar-card-head h4,
-    .pillar-icon-red + h4,
+    .pillar-icon-red+h4,
     .pillar-icon-red h4 {
         margin: 0 !important;
         padding: 0 !important;
@@ -1402,6 +1404,7 @@ span.dot-white {
         align-self: center !important;
     }
 }
+
 /* ========== SHIVM NEW CHANGES END ========== */
 
 @media (max-width: 768px) {
@@ -2166,7 +2169,8 @@ span.dot-red {
         margin-top: 0 !important;
         width: 100% !important;
     }
-/* ========== SHIVM NEW CHANGES END ========== */
+
+    /* ========== SHIVM NEW CHANGES END ========== */
 
     .process-linear-container {
         grid-template-columns: repeat(2, 1fr);
@@ -2254,16 +2258,24 @@ span.dot-red {
         font-size: 24px !important;
     }
 
-    .founder-card-container {
-        margin: 0 auto 65px auto !important;
-        max-width: 100% !important;
-    }
-
     .founder-main-img img {
         height: auto !important;
         max-height: 480px !important;
     }
-/* ========== SHIVM NEW CHANGES END ========== */
+
+    /* In phone responsive: Main image/card appears above the description */
+    .founder-card-container {
+        order: 2 !important;
+        margin: 0 auto 65px auto !important;
+        max-width: 100% !important;
+    }
+
+    .built-text {
+        order: 3 !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* ========== SHIVM NEW CHANGES END ========== */
 
     /* Mobile par screen choti hoti hai toh box ko full width karke overlap smooth rakhenge */
     .founder-quote-content {
